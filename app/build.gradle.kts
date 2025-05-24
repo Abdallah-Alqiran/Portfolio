@@ -1,6 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    //firebase
+//    id("com.google.gms.google-services")
+
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+
+    // Serialization
+    alias(libs.plugins.kotlin.serialization)
+
 }
 
 android {
@@ -66,4 +76,52 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //coil
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+
+    // lottie
+    implementation(libs.lottie)
+    implementation(libs.lottie.compose)
+
+    // viewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose.android)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
+    // coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+
+    // dataStore
+    implementation(libs.androidx.datastore.preferences)
+
+    // dependency injection
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+
+    //firebase
+//    implementation(platform(libs.firebase.bom))
+//    implementation(libs.firebase.firestore.ktx)
+//    implementation(libs.firebase.analytics.ktx)
+//    implementation(libs.firebase.database.ktx)
+
+
+
+    // extra icons
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.material.icons.extended)
+
+
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+
+    // Graphs
+    implementation(libs.androidx.foundation)
+    implementation(libs.ui)
+
 }
