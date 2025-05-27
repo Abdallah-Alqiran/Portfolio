@@ -6,7 +6,6 @@ import com.alqiran.portflio.ui.screens.home_screen.model.Education
 import com.alqiran.portflio.ui.screens.home_screen.model.Experience
 import com.alqiran.portflio.ui.screens.home_screen.model.Project
 import com.alqiran.portflio.ui.screens.home_screen.model.Skill
-import com.alqiran.portflio.ui.screens.home_screen.model.Technology
 import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitle
 
 data class User(

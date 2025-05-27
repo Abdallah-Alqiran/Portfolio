@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HeadlineTextWidget(text: String) {
     Box(modifier = Modifier
-        .padding(top = 8.dp)
+        .padding(top = 24.dp)
     ) {
         Text(
             text = text,

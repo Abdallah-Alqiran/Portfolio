@@ -28,9 +28,9 @@ val project = Project(
 val projects: List<Project> = listOf(
     project,
     project.copy(id = 1),
-    project.copy(id = 2),
-    project.copy(id = 3),
-    project.copy(id = 4),
+    project.copy(id = 2, projectName = "Top app top app top app top app"),
+    project.copy(id = 3, projectName = "hello world"),
+    project.copy(id = 4, projectName = "Fake name and data"),
     project.copy(id = 5),
 )
 
