@@ -96,7 +96,7 @@ val technologyTitle: List<TechnologyTitle> = listOf(
         technologies = listOf<Technology>(
             Technology(
                 id = 0,
-                technologyName = "kotlin"
+                technologyName = "kotlin kotlin kotlin kotlin"
             ),
             Technology(
                 id = 1,
@@ -109,6 +109,10 @@ val technologyTitle: List<TechnologyTitle> = listOf(
             Technology(
                 id = 3,
                 technologyName = "c++"
+            ),
+            Technology(
+                id = 4,
+                technologyName = "kotlin kotlin kotlin kotlin"
             ),
         )
     ),
@@ -185,11 +189,7 @@ val fakeUserDataModel: UserUiModel = UserUiModel(
     userImage = "https://drive.google.com/uc?export=view&id=1n0QZ8XbQNSHjeMyogj0BdR_SqdQfPPdv",
     about = "I am a Computer Science student passionate about technology, innovation, and mobile app development. I am focused on enhancing my problem-solving skills and learning Android development using Kotlin.\n" +
             "\n" +
-            "I work as a mentor at SVU University, where I guide students in building their problem-solving skills and sharing my knowledge.\n" +
-            "\n" +
-            "I am also enrolled in the Mobile Development track at the Digital Egypt Pioneers Initiative (DEPI), expanding my expertise in Android development with Kotlin, XML and Jetpack Compose. \n" +
-            "\n" +
-            "Beyond academics, I work on personal projects to practice Kotlin and mobile app development. I am also collaborating with a team on our DEPI graduation project and learn from various online resources to continuously improve my skills.",
+            "I work as a mentor at SVU University, where I guide students in building their problem-solving skills and sharing my knowledge.",
     cvUrl = "https://drive.google.com/drive/folders/1H3fWSC_sh6Sic_gVzc5DmiTSNDd0pXvx",
     projects = projects,
     contactAndAccounts = contact,

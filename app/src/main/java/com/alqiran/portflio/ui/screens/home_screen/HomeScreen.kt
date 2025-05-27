@@ -1,15 +1,16 @@
 package com.alqiran.portflio.ui.screens.home_screen
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
+
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +22,10 @@ import com.alqiran.portflio.theme.PortflioTheme
 import com.alqiran.portflio.ui.components.HeadlineTextWidget
 import com.alqiran.portflio.ui.helper.isValidUrl
 import com.alqiran.portflio.ui.screens.home_screen.components.AboutSection
+import com.alqiran.portflio.ui.screens.home_screen.components.CVButton
+import com.alqiran.portflio.ui.screens.home_screen.components.TechnologiesAndToolsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.TopTitleSection
+import com.alqiran.portflio.ui.screens.home_screen.model.Technology
 import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitle
 import com.alqiran.portflio.ui.screens.home_screen.preview.fakeUserDataModel
 
@@ -62,28 +66,6 @@ fun HomeScreen() {
     }
 }
 
-@Composable
-fun CVButton(cvUrl: String, context: Context) {
-    Button(
-        modifier = Modifier.background(MaterialTheme.colorScheme.surface),
-        onClick = {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(cvUrl))
-            context.startActivity(intent)
-
-    }) {
-        Text(
-            text = "Check My CV",
-            color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.labelLarge
-        )
-    }
-}
-@Composable
-fun TechnologiesAndToolsSection(
-    technologiesAndTools: List<TechnologyTitle>
-) {
-    
-}
 
 @Preview
 @Composable
