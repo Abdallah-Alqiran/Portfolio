@@ -10,7 +10,6 @@ import com.alqiran.portflio.ui.components.HeadlineTextWidget
 
 @Composable
 fun AboutSection(userAbout: String) {
-    HeadlineTextWidget(text = "About")
     Text(
         text = userAbout,
         color = MaterialTheme.colorScheme.primary,

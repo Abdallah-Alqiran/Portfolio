@@ -143,13 +143,13 @@ val technologyTitle: List<TechnologyTitle> = listOf(
 val courses: List<Course> = listOf(
     Course(
         id = 0,
-        courseName = "DEPI",
+        courseName = "DEPI (Digital Egypt Pioneers Initiative)",
         courseDescription = "Mobile app development, Technical and non-technical sessions"
     ),
     Course(
         id = 1,
         courseName = "C++",
-        courseDescription = "Mobile app development, Technical and non-technical sessions"
+        courseDescription = "Mobile app development, Technical and non-technical sessions it's the best course I am very happy that I joined this course, I learned too toooo toooooo much things"
     ),
     Course(
         id = 2,
@@ -165,17 +165,17 @@ val courses: List<Course> = listOf(
 
 val experiences: List<Experience> = listOf(
     Experience(
-        experienceTitle = "Working in graduation DEPI project",
+        experienceTitle = "DEPI graduation project",
         description = "My goal is to make a lot of things in the project and I think I did well in this project",
         date = "oct2024 to may2025"
     ),
     Experience(
-        experienceTitle = "Working in graduation DEPI project",
+        experienceTitle = "TurboFit",
         description = "My goal is to make a lot of things in the project and I think I did well in this project",
         date = "oct2024 to may2025"
     ),
     Experience(
-        experienceTitle = "Working in graduation DEPI project",
+        experienceTitle = "Heloo hi",
         description = "My goal is to make a lot of things in the project and I think I did well in this project",
         date = "oct2024 to may2025"
     ),

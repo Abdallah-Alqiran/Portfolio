@@ -10,18 +10,18 @@ import com.alqiran.portflio.R
 
 val Typography = Typography(
     headlineLarge = TextStyle(
-        fontFamily = FontFamily(Font(R.font.poppins_semi_bold)),
-        fontSize = 28.sp,
-        fontWeight = FontWeight.SemiBold
-    ),
-    headlineMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.rubik_semi_bold)),
         fontSize = 22.sp,
         fontWeight = FontWeight.SemiBold
     ),
-    headlineSmall = TextStyle(
+    headlineMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.rubik_semi_bold)),
         fontSize = 18.sp,
+        fontWeight = FontWeight.SemiBold
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = FontFamily(Font(R.font.rubik_semi_bold)),
+        fontSize = 16.sp,
         fontWeight = FontWeight.SemiBold
     ),
     bodyLarge = TextStyle(
