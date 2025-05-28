@@ -12,7 +12,7 @@ data class UserUiModel(
     val technologiesAndTools: List<TechnologyTitle>?,
     val courses: List<Course>?,
     val experiences: List<Experience>?,
-    val education: Education?
+    val education: List<Education>?
 )
 
 

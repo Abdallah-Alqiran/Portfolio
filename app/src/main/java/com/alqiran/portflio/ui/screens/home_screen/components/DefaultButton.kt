@@ -2,7 +2,6 @@ package com.alqiran.portflio.ui.screens.home_screen.components
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState

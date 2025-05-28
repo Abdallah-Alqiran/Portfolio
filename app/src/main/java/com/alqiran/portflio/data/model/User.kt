@@ -20,56 +20,5 @@ data class User(
     val technologiesAndTools: List<TechnologyTitle>?,
     val courses: List<Course>?,
     val experiences: List<Experience>?,
-    val education: Education?
+    val education: List<Education>?
 )
-
-
-//data class ContactAndAccounts (
-//    val id: Int,
-//    val webName: String,
-//    val url: String
-//)
-//
-//data class Course (
-//    val id: Int,
-//    val courseName: String,
-//    val courseDescription: String,
-//)
-//
-//
-//data class Education(
-//    val id : Int,
-//    val university: String,
-//    val date: String,
-//    val major: String
-//)
-//
-//data class Experience(
-//    val experienceTitle: String,
-//    val date: String,
-//    val description: String,
-//)
-//
-//data class Project(
-//    val id: Int,
-//    val image: String,
-//    val projectName: String,
-//    val description: String,
-//    val url: String
-//)
-//
-//data class Skill(
-//    val id: Int,
-//    val skillName: String
-//)
-//
-//data class Technology (
-//    val id: Int,
-//    val technologyName: String
-//)
-//
-//data class TechnologyTitle (
-//    val id: Int,
-//    val technologyTitle: String,
-//    val technologies: List<Technology>
-//)

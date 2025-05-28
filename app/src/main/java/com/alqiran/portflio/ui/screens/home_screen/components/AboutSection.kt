@@ -13,7 +13,7 @@ fun AboutSection(userAbout: String) {
     Text(
         text = userAbout,
         color = MaterialTheme.colorScheme.primary,
-        style = MaterialTheme.typography.labelLarge,
+        style = MaterialTheme.typography.labelMedium,
         modifier = Modifier.padding(horizontal = 4.dp)
     )
 }

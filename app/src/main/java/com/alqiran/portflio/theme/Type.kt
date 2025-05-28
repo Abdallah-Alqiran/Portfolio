@@ -34,6 +34,11 @@ val Typography = Typography(
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal
     ),
+    labelSmall = TextStyle(
+        fontFamily = FontFamily(Font(R.font.rubik_italic)),
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal
+    ),
     labelLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_medium)),
         fontSize = 16.sp,
@@ -48,5 +53,6 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.inter_regular)),
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
-    )
+    ),
+
 )

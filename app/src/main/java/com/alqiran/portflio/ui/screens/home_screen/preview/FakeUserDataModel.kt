@@ -166,16 +166,19 @@ val courses: List<Course> = listOf(
 val experiences: List<Experience> = listOf(
     Experience(
         experienceTitle = "DEPI graduation project",
+        company = "Digital Egypt Pioneers Initiative",
         description = "My goal is to make a lot of things in the project and I think I did well in this project",
         date = "oct2024 to may2025"
     ),
     Experience(
         experienceTitle = "TurboFit",
+        company = "Digital Egypt Pioneers Initiative",
         description = "My goal is to make a lot of things in the project and I think I did well in this project",
         date = "oct2024 to may2025"
     ),
     Experience(
         experienceTitle = "Heloo hi",
+        company = "Top best company in the world",
         description = "My goal is to make a lot of things in the project and I think I did well in this project",
         date = "oct2024 to may2025"
     ),
@@ -197,13 +200,13 @@ val fakeUserDataModel: UserUiModel = UserUiModel(
     technologiesAndTools = technologyTitle,
     courses = courses,
     experiences = experiences,
-    education = Education(
+    education = listOf(Education(
         id = 0,
         date = "oct2023, current",
         university = "South Valley University",
         major = "CS and IT and Ai (all of above)",
     )
-)
+))
 
 
 
