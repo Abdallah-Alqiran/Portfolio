@@ -5,7 +5,11 @@ sealed class Screens(val route: String) {
 
     data object HomeScreenRoute : Screens("home")
 
-    data object ProjectItemRoute: Screens("project_item")
+    data object ProjectItemRoute: Screens("project_item/{project_id}") {
+        fun passId(projectId: String): String {
+            return "project_item/$projectId"
+        }
+    }
 
     data object ProjectsScreenRoute: Screens("projects")
     data object CoursesScreenRoute: Screens("courses")

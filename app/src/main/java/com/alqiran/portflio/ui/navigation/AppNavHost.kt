@@ -21,7 +21,7 @@ fun AppNavHost() {
     val onNavigate: (NavigationAction) -> Unit = { action ->
         when (action) {
             is NavigationAction.ToProject -> {
-                navController.navigate(Screens.ProjectItemRoute.route)
+                navController.navigate(Screens.ProjectItemRoute.passId(action.projectId))
             }
 
             is NavigationAction.ToViewAllCourses -> {
@@ -56,9 +56,12 @@ fun AppNavHost() {
             }
 
             // Project Item
-            composable(Screens.ProjectItemRoute.route) {
+            composable(Screens.ProjectItemRoute.route) { navBackStackEntry ->
+
+                val projectId = navBackStackEntry.arguments?.getString("project_id")
+
                 ProjectItemScreen (
-                    onNavigate
+                    projectId!!.toInt()
                 )
             }
 
@@ -71,9 +74,7 @@ fun AppNavHost() {
 
             // All Courses Screen
             composable(Screens.CoursesScreenRoute.route) {
-                CoursesScreen(
-                    onNavigate
-                )
+                CoursesScreen()
             }
         }
     }

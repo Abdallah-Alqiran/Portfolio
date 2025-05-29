@@ -65,7 +65,7 @@ fun ProjectsSection(projects: List<Project>, onNavigate: (NavigationAction) -> U
                     DefaultButton(
                         "Show Details",
                         navigationType = NavigationType.ScreenNavigation(
-                            navigationAction = NavigationAction.ToProject(project),
+                            navigationAction = NavigationAction.ToProject(project.id.toString()),
                             onNavigate = onNavigate
                         )
                     )

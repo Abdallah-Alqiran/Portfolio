@@ -7,7 +7,7 @@ sealed class NavigationAction {
 
     object Nothing: NavigationAction()
 
-    data class ToProject(val project: Project): NavigationAction()
+    data class ToProject(val projectId: String): NavigationAction()
 
     data class ToViewAllProjects(val projects: List<Project>): NavigationAction()
     data class ToViewAllCourses(val courses: List<Course>): NavigationAction()
