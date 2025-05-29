@@ -1,6 +1,5 @@
 package com.alqiran.portflio.ui.screens.home_screen.components
 
-import android.content.Context
 import android.content.Intent
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -23,11 +22,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import com.alqiran.portflio.ui.utils.NavigationType
 
 @Composable
-fun DefaultButton(text: String, cvUrl: String = "", context: Context) {
+fun DefaultButton(
+    text: String,
+    navigationType: NavigationType
+) {
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             .fillMaxWidth(),
@@ -62,10 +68,20 @@ fun DefaultButton(text: String, cvUrl: String = "", context: Context) {
 
         Button(
             onClick = {
-                if (cvUrl != "") {
-                    context.startActivity(Intent(Intent.ACTION_VIEW, cvUrl.toUri()))
-                } else {
-
+                when (navigationType) {
+                    is NavigationType.IntentNavigation -> {
+                        context.startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                (navigationType.url).toUri()
+                            )
+                        )
+                    }
+                    is NavigationType.ScreenNavigation -> {
+                        navigationType.onNavigate(
+                            navigationType.navigationAction
+                        )
+                    }
                 }
             },
             interactionSource = interactionSource,

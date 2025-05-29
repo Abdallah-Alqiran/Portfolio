@@ -1,7 +1,12 @@
 package com.alqiran.portflio.ui.navigation
 
 sealed class Screens(val route: String) {
-    data object SplashScreen: Screens("splash")
-    data object HomeScreen : Screens("home")
-    data object Projects : Screens("projects")
+    data object SplashScreenRoute: Screens("splash")
+
+    data object HomeScreenRoute : Screens("home")
+
+    data object ProjectItemRoute: Screens("project_item")
+
+    data object ProjectsScreenRoute: Screens("projects")
+    data object CoursesScreenRoute: Screens("courses")
 }
