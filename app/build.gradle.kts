@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 
     //firebase
-//    id("com.google.gms.google-services")
+    id("com.google.gms.google-services")
 
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
@@ -104,10 +104,10 @@ dependencies {
 
 
     //firebase
-//    implementation(platform(libs.firebase.bom))
-//    implementation(libs.firebase.firestore.ktx)
-//    implementation(libs.firebase.analytics.ktx)
-//    implementation(libs.firebase.database.ktx)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.analytics.ktx)
+    implementation(libs.firebase.database.ktx)
 
 
 

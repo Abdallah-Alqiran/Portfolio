@@ -1,26 +1,16 @@
 package com.alqiran.portflio.ui.screens.home_screen.model
 
 data class UserUiModel(
-    val userName: String,
-    val jobTitle: String,
-    val userImage: String?,
-    val about: String?,
-    val cvUrl: String?,
-    val projects: List<Project>?,
-    val contactAndAccounts: List<ContactAndAccounts>?,
-    val skills: List<Skill>?,
-    val technologiesAndTools: List<TechnologyTitle>?,
-    val courses: List<Course>?,
-    val experiences: List<Experience>?,
-    val education: List<Education>?
+    val userName: String = "",
+    val jobTitle: String = "",
+    val userImage: String? = null,
+    val about: String? = null,
+    val cvUrl: String? = null,
+    val projects: List<ProjectUiModel>? = null,
+    val contactAndAccounts: List<ContactAndAccountsUiModel>? = null,
+    val skills: List<SkillUiModel>? = null,
+    val technologiesAndTools: List<TechnologyTitleUiModel>? = null,
+    val courses: List<CourseUiModel>? = null,
+    val experiences: List<ExperienceUiModel>? = null,
+    val education: List<EducationUiModel>? = null
 )
-
-
-
-
-
-
-
-
-
-

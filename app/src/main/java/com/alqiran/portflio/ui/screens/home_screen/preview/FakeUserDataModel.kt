@@ -1,17 +1,17 @@
 package com.alqiran.portflio.ui.screens.home_screen.preview
 
-import com.alqiran.portflio.ui.screens.home_screen.model.ContactAndAccounts
-import com.alqiran.portflio.ui.screens.home_screen.model.Course
-import com.alqiran.portflio.ui.screens.home_screen.model.Education
-import com.alqiran.portflio.ui.screens.home_screen.model.Experience
-import com.alqiran.portflio.ui.screens.home_screen.model.Project
-import com.alqiran.portflio.ui.screens.home_screen.model.Skill
-import com.alqiran.portflio.ui.screens.home_screen.model.Technology
-import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitle
+import com.alqiran.portflio.ui.screens.home_screen.model.ContactAndAccountsUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.EducationUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.ExperienceUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.SkillUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitleUiModel
 import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
 
 
-val project = Project(
+val project = ProjectUiModel(
     id = 0,
     projectName = "TurboFit",
     description = "TurpoFit is a mobile fitness application built to support users in leading healthier lives by combining modern technology with essential wellness tools. Designed for Android and developed as part of the DEPI graduation project, TurpoFit focuses on creating a personalized and motivating experience for each user.\n" +
@@ -25,174 +25,188 @@ val project = Project(
     image = "https://drive.google.com/uc?export=view&id=1LHqildeJORutspcTLq0RH39-s5mWJBns"
 )
 
-val projects: List<Project> = listOf(
+val project2 = ProjectUiModel(
+    id = 1,
+    projectName = "Github Trend Explorer",
+    description = "This Android application was developed as part of the DEPI initiative. The project successfully created a platform to display popular GitHub repositories, showcasing essential details such as stars, forks, and topics. Throughout development, best practices for API integration and dynamic content rendering were implemented to ensure an optimized user experience.",
+    url = "https://github.com/Abdallah-Alqiran/GitHub-Trend-Explorer-Project",
+    image = "https://drive.google.com/uc?export=view&id=17dPzh3Sak8C5ASYYWWBIFLR9oM_MlC7q"
+)
+
+val project3 = ProjectUiModel(
+    id = 2,
+    projectName = "Meals App",
+    description = "This Android application was developed as part of the DEPI initiative. The project successfully created a platform to display popular GitHub repositories, showcasing essential details such as stars, forks, and topics. Throughout development, best practices for API integration and dynamic content rendering were implemented to ensure an optimized user experience.",
+    url = "https://github.com/Abdallah-Alqiran/Meals-App",
+    image = "https://drive.google.com/uc?export=view&id=1oUhqh9sChodainL8o05Q59mZ2PgjdbJ8"
+)
+
+val projects: List<ProjectUiModel> = listOf(
     project,
-    project.copy(id = 1),
-    project.copy(id = 2, projectName = "Top app top app top app top app"),
+    project2,
+    project3,
     project.copy(id = 3, projectName = "hello world"),
     project.copy(id = 4, projectName = "Fake name and data"),
     project.copy(id = 5),
 )
 
 val contact = listOf(
-    ContactAndAccounts(
+    ContactAndAccountsUiModel(
         id = 0,
         webName = "linkedin",
         url = "https://www.linkedin.com/in/abdallah-alqiran/"
     ),
-    ContactAndAccounts(
+    ContactAndAccountsUiModel(
         id = 1,
         webName = "whatsapp",
         url = "https://wa.me/201016611062"
     ),
-    ContactAndAccounts(
+    ContactAndAccountsUiModel(
         id = 2,
         webName = "facebook",
         url = "https://www.linkedin.com/in/abdallah-alqiran/"
     ),
 
-)
-
-val skills: List<Skill> = listOf(
-    Skill(
-        id = 0,
-        skillName = "Kotlin"
-    ),
-    Skill(
-        id = 1,
-        skillName = "compose"
-    ),
-    Skill(
-        id = 2,
-        skillName = "XML"
-    ),
-    Skill(
-        id = 3,
-        skillName = "Kotlin, compose, XML"
-    ),
-    Skill(
-        id = 4,
-        skillName = "Kotlin, compose"
-    ),
-    Skill(
-        id = 5,
-        skillName = "compose, XML"
-    ),
-    Skill(
-        id = 6,
-        skillName = "Kotlin, compose, XML"
-    ),
-    Skill(
-        id = 7,
-        skillName = "compose, XML"
     )
+
+val skills: List<SkillUiModel> = listOf(
+    SkillUiModel(
+        id = 0,
+        skillName = "OOP and Data Structure"
+    ),
+    SkillUiModel(
+        id = 1,
+        skillName = "Design Patterns, Clean Architecture"
+    ),
+    SkillUiModel(
+        id = 2,
+        skillName = "Problem solving (1000+ problems)"
+    ),
+    SkillUiModel(
+        id = 3,
+        skillName = "Communication"
+    ),
+    SkillUiModel(
+        id = 4,
+        skillName = "TeamWork"
+    ),
+    SkillUiModel(
+        id = 5,
+        skillName = "UI/UX"
+    )
+
 )
 
 
-val technologyTitle: List<TechnologyTitle> = listOf(
-    TechnologyTitle(
+val technologyTitle: List<TechnologyTitleUiModel> = listOf(
+    TechnologyTitleUiModel(
         id = 0,
         technologyTitle = "Programming Languages",
-        technologies = listOf<Technology>(
-            Technology(
+        technologies = listOf<TechnologyUiModel>(
+            TechnologyUiModel(
                 id = 0,
-                technologyName = "kotlin kotlin kotlin kotlin"
+                technologyName = "Kotlin"
             ),
-            Technology(
+            TechnologyUiModel(
                 id = 1,
-                technologyName = "web"
+                technologyName = "Flutter"
             ),
-            Technology(
+            TechnologyUiModel(
                 id = 2,
-                technologyName = "flutter"
+                technologyName = "C++"
             ),
-            Technology(
+            TechnologyUiModel(
                 id = 3,
-                technologyName = "c++"
+                technologyName = "HTML, CSS, JAVAScript"
             ),
-            Technology(
+            TechnologyUiModel(
                 id = 4,
-                technologyName = "kotlin kotlin kotlin kotlin"
+                technologyName = "JAVA"
             ),
         )
     ),
-    TechnologyTitle(
+    TechnologyTitleUiModel(
         id = 1,
         technologyTitle = "Technologies",
-        technologies = listOf<Technology>(
-            Technology(
+        technologies = listOf<TechnologyUiModel>(
+            TechnologyUiModel(
                 id = 0,
-                technologyName = "Compose"
-            ),
-            Technology(
-                id = 1,
                 technologyName = "JetpackCompose"
             ),
-            Technology(
+            TechnologyUiModel(
+                id = 1,
+                technologyName = "Databases: SQL, SQLite, Firebase"
+            ),
+            TechnologyUiModel(
                 id = 2,
                 technologyName = "viewModel"
             ),
-            Technology(
+            TechnologyUiModel(
                 id = 3,
-                technologyName = "c++"
+                technologyName = "Dagger Hilt"
+            ),
+            TechnologyUiModel(
+                id = 4,
+                technologyName = "Room, Shared Preferences"
+            ),
+            TechnologyUiModel(
+                id = 5,
+                technologyName = "Git and Github"
             ),
         )
     ),
 )
 
-val courses: List<Course> = listOf(
-    Course(
+val courses: List<CourseUiModel> = listOf(
+    CourseUiModel(
         id = 0,
         courseName = "DEPI (Digital Egypt Pioneers Initiative)",
         courseDescription = "Mobile app development, Technical and non-technical sessions"
     ),
-    Course(
+    CourseUiModel(
         id = 1,
-        courseName = "C++",
-        courseDescription = "Mobile app development, Technical and non-technical sessions it's the best course I am very happy that I joined this course, I learned too toooo toooooo much things"
+        courseName = "Database",
+        courseDescription = "Offline course at Creativa Qena"
     ),
-    Course(
+    CourseUiModel(
         id = 2,
-        courseName = "Innovation Bootcamp",
-        courseDescription = "Learn how to start your business"
+        courseName = "Job Readiness",
+        courseDescription = "At Dandara Al Ebdaa, Focused on developing skills for the professional workplace"
     ),
-    Course(
+    CourseUiModel(
         id = 3,
-        courseName = "DEPI",
-        courseDescription = "Mobile app development, Technical and non-technical sessions"
+        courseName = "Innovation Bootcamp",
+        courseDescription = "Developed product-thinking mindset and improved problem-solving skills through hands-on, team-based challenges."
     ),
 )
 
-val experiences: List<Experience> = listOf(
-    Experience(
+val experiences: List<ExperienceUiModel> = listOf(
+    ExperienceUiModel(
         experienceTitle = "DEPI graduation project",
         company = "Digital Egypt Pioneers Initiative",
-        description = "My goal is to make a lot of things in the project and I think I did well in this project",
-        date = "oct2024 to may2025"
+        description = "I played a key role in enhancing the app’s overall structure and user experience. My goal was to refactor key components, implement clean architecture, and integrate Firestore to improve code quality and maintainability. Additionally, I created several screens, managed all navigation components, and wrote the project’s README file. I collaborated closely with my team to ensure smooth feature integration and addressed performance challenges to deliver a stable and user-friendly app.",
+        date = "10/2024 – 05/2025"
     ),
-    Experience(
-        experienceTitle = "TurboFit",
-        company = "Digital Egypt Pioneers Initiative",
-        description = "My goal is to make a lot of things in the project and I think I did well in this project",
+    ExperienceUiModel(
+        experienceTitle = "Mentor at SVU-CPC",
+        company = "South Valley University",
+        description = "Assisting students at South Valley University in developing their problem-solving skills by guiding them through practice sheets and solving complex problems together.",
         date = "oct2024 to may2025"
-    ),
-    Experience(
-        experienceTitle = "Heloo hi",
-        company = "Top best company in the world",
-        description = "My goal is to make a lot of things in the project and I think I did well in this project",
-        date = "oct2024 to may2025"
-    ),
-
     )
+)
 
 
 val fakeUserDataModel: UserUiModel = UserUiModel(
     userName = "Abdallah Alqiran",
     jobTitle = "Android Developer",
     userImage = "https://drive.google.com/uc?export=view&id=1n0QZ8XbQNSHjeMyogj0BdR_SqdQfPPdv",
-    about = "I am a Computer Science student passionate about technology, innovation, and mobile app development. I am focused on enhancing my problem-solving skills and learning Android development using Kotlin.\n" +
+    about = "I am a Computer Science student passionate about technology, innovation, and mobile app development. I have completed the Mobile Development track of the Digital Egypt Pioneers Initiative (DEPI), where I enhanced both my technical and soft skills.\n" +
             "\n" +
-            "I work as a mentor at SVU University, where I guide students in building their problem-solving skills and sharing my knowledge.",
+            "I work on personal projects to improve my Kotlin and Android development abilities and collaborated with a team on our DEPI graduation project to gain practical experience.\n" +
+            "\n" +
+            "Previously, I served as a mentor at South Valley University, helping students develop their problem-solving skills.\n" +
+            "\n" +
+            "I also participated in the ECPC Qualification Contest in 2024.",
     cvUrl = "https://drive.google.com/drive/folders/1H3fWSC_sh6Sic_gVzc5DmiTSNDd0pXvx",
     projects = projects,
     contactAndAccounts = contact,
@@ -200,14 +214,43 @@ val fakeUserDataModel: UserUiModel = UserUiModel(
     technologiesAndTools = technologyTitle,
     courses = courses,
     experiences = experiences,
-    education = listOf(Education(
-        id = 0,
-        date = "oct2023, current",
-        university = "South Valley University",
-        major = "CS and IT and Ai (all of above)",
+    education = listOf(
+        EducationUiModel(
+            id = 0,
+            date = "10/2023 - current",
+            university = "South Valley University",
+            major = "Not Specify",
+        )
     )
-))
+)
 
 
 
 
+val fakeUserDataModel2: UserUiModel = UserUiModel(
+    userName = "Abdallah Abdallah Abdallah Abdallah Abdallah",
+    jobTitle = "Android Developer",
+    userImage = "https://drive.google.com/uc?export=view&id=1n0QZ8XbQNSHjeMyogj0BdR_SqdQfPPdv",
+    about = "I am a Computer Science student passionate about technology, innovation, and mobile app development. I have completed the Mobile Development track of the Digital Egypt Pioneers Initiative (DEPI), where I enhanced both my technical and soft skills.\n" +
+            "\n" +
+            "I work on personal projects to improve my Kotlin and Android development abilities and collaborated with a team on our DEPI graduation project to gain practical experience.\n" +
+            "\n" +
+            "Previously, I served as a mentor at South Valley University, helping students develop their problem-solving skills.\n" +
+            "\n" +
+            "I also participated in the ECPC Qualification Contest in 2024.",
+    cvUrl = "https://drive.google.com/drive/folders/1H3fWSC_sh6Sic_gVzc5DmiTSNDd0pXvx",
+    projects = projects,
+    contactAndAccounts = contact,
+    skills = skills,
+    technologiesAndTools = technologyTitle,
+    courses = courses,
+    experiences = experiences,
+    education = listOf(
+        EducationUiModel(
+            id = 0,
+            date = "10/2023 - current",
+            university = "South Valley University",
+            major = "Not Specify",
+        )
+    )
+)

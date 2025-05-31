@@ -7,13 +7,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alqiran.portflio.theme.PortflioTheme
 import com.alqiran.portflio.ui.components.HeadlineTextWidget
 import com.alqiran.portflio.ui.components.ViewAllTextButton
@@ -28,17 +29,38 @@ import com.alqiran.portflio.ui.screens.home_screen.components.ProjectsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.SkillsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.TechnologiesAndToolsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.TopTitleSection
-import com.alqiran.portflio.ui.screens.viewModels.UserViewModel
+import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
+import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserState
+import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserViewModel
 import com.alqiran.portflio.ui.utils.NavigationType
+import androidx.compose.runtime.getValue
+
+
 
 @Composable
 fun HomeScreen(
     onNavigate: (NavigationAction) -> Unit
 ) {
 
-    val userViewModel = viewModel<UserViewModel>()
-    val userData = userViewModel.userData.collectAsStateWithLifecycle().value
+    val userViewModel: UserViewModel = hiltViewModel()
+    val userData by userViewModel.userState.collectAsStateWithLifecycle()
 
+    when(userData) {
+        is UserState.Success -> {
+            HomeContentScreen((userData as UserState.Success).userData, onNavigate)
+        }
+        is UserState.Error -> {
+            Text((userData as UserState.Error).error)
+        }
+        UserState.Loading -> {}
+        UserState.None -> Unit
+    }
+
+
+}
+
+@Composable
+fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> Unit) {
     val context = LocalContext.current
     val listState = rememberLazyListState()
 
@@ -118,11 +140,6 @@ fun HomeScreen(
     }
 }
 
-
-@Composable
-fun Contact() {
-
-}
 
 @Preview
 @Composable

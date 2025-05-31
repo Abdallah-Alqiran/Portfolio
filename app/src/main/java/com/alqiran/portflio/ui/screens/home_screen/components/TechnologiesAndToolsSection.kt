@@ -9,11 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.alqiran.portflio.ui.components.TwoItemsPerRow
-import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitle
+import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitleUiModel
 
 @Composable
 fun TechnologiesAndToolsSection(
-    technologiesAndTools: List<TechnologyTitle>
+    technologiesAndTools: List<TechnologyTitleUiModel>
 ) {
     Column(modifier = Modifier.padding(horizontal = 8.dp)) {
         technologiesAndTools.forEach { technologyTitleItem ->

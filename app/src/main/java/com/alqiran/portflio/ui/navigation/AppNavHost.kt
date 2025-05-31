@@ -14,7 +14,6 @@ import com.alqiran.portflio.ui.screens.projects_screen.ProjectsScreen
 
 @Composable
 fun AppNavHost() {
-
     val navController = rememberNavController()
 
 

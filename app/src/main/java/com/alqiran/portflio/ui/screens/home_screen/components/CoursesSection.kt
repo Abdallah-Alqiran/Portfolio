@@ -17,11 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.alqiran.portflio.ui.screens.home_screen.model.Course
+import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
 import kotlin.collections.forEach
 
 @Composable
-fun Courses(courses: List<Course>) {
+fun Courses(courses: List<CourseUiModel>) {
     Row(
         modifier = Modifier
             .padding(vertical = 16.dp)

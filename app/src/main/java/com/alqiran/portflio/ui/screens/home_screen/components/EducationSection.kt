@@ -9,11 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.alqiran.portflio.ui.screens.home_screen.model.Education
+import com.alqiran.portflio.ui.screens.home_screen.model.EducationUiModel
 import kotlin.collections.forEach
 
 @Composable
-fun EducationSection(educations: List<Education>) {
+fun EducationSection(educations: List<EducationUiModel>) {
     educations.forEach { education ->
         Row(
             modifier = Modifier.fillMaxWidth()

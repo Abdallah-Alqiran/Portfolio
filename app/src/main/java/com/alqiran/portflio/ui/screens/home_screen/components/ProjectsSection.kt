@@ -1,6 +1,5 @@
 package com.alqiran.portflio.ui.screens.home_screen.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,15 +17,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.alqiran.portflio.R
 import com.alqiran.portflio.ui.navigation.NavigationAction
-import com.alqiran.portflio.ui.screens.home_screen.model.Project
+import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
 import com.alqiran.portflio.ui.utils.NavigationType
 
 @Composable
-fun ProjectsSection(projects: List<Project>, onNavigate: (NavigationAction) -> Unit) {
+fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationAction) -> Unit) {
 
     val listState = rememberLazyListState()
 
@@ -44,12 +46,17 @@ fun ProjectsSection(projects: List<Project>, onNavigate: (NavigationAction) -> U
                     .background(MaterialTheme.colorScheme.surface)
                     .padding(bottom = 8.dp),
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.p1),
-                    contentDescription = null,
+                AsyncImage(
+                    model = ImageRequest.Builder(context = LocalContext.current)
+                        .data(project.image)
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = "Project Image",
                     modifier = Modifier
                         .width(240.dp)
-                        .aspectRatio(16f / 9f)
+                        .aspectRatio(16f / 9f),
+                    placeholder = painterResource(id = R.drawable.profile),
+                    error = painterResource(id = R.drawable.profile)
                 )
                 Text(
                     text = project.projectName,

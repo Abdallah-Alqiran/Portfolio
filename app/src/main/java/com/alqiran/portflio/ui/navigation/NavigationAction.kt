@@ -1,7 +1,7 @@
 package com.alqiran.portflio.ui.navigation
 
-import com.alqiran.portflio.ui.screens.home_screen.model.Course
-import com.alqiran.portflio.ui.screens.home_screen.model.Project
+import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
+import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
 
 sealed class NavigationAction {
 
@@ -9,8 +9,8 @@ sealed class NavigationAction {
 
     data class ToProject(val projectId: String): NavigationAction()
 
-    data class ToViewAllProjects(val projects: List<Project>): NavigationAction()
-    data class ToViewAllCourses(val courses: List<Course>): NavigationAction()
+    data class ToViewAllProjects(val projects: List<ProjectUiModel>): NavigationAction()
+    data class ToViewAllCourses(val courses: List<CourseUiModel>): NavigationAction()
 
 
 }
