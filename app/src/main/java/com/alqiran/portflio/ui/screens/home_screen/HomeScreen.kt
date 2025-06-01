@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,6 +45,10 @@ fun HomeScreen(
 
     val userViewModel: UserViewModel = hiltViewModel()
     val userData by userViewModel.userState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(Unit) {
+        userViewModel.fetchUserData()
+    }
 
     when(userData) {
         is UserState.Success -> {
