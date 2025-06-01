@@ -56,7 +56,7 @@ fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationActio
                         .width(240.dp)
                         .aspectRatio(16f / 9f),
                     placeholder = painterResource(id = R.drawable.profile),
-                    error = painterResource(id = R.drawable.profile)
+                    error = painterResource(id = R.drawable.ic_launcher_background)
                 )
                 Text(
                     text = project.projectName,
