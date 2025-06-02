@@ -68,11 +68,6 @@ fun ProjectItemScreen(projectId: Int) {
     }
 }
 
-/*
-   projectName: String = "",
-   description: String = "",
-   url: String = ""
- */
 @Composable
 fun ProjectItemContentScreen(project: ProjectUiModel) {
     val context = LocalContext.current

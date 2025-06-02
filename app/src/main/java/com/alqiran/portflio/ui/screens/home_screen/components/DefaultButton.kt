@@ -26,6 +26,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import com.alqiran.portflio.ui.utils.NavigationType
+import kotlin.reflect.typeOf
 
 @Composable
 fun DefaultButton(
@@ -100,7 +101,7 @@ fun DefaultButton(
                 .scale(scale)
                 .border(borderWidth, borderColor, RoundedCornerShape(16.dp))
         ) {
-            Text(text = text)
+            Text(text = text, style = MaterialTheme.typography.labelLarge)
         }
     }
 }
