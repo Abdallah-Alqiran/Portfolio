@@ -58,7 +58,7 @@ fun TopTitleSection(
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.surface),
             placeholder = painterResource(id = R.drawable.profile),
-            error = painterResource(id = R.drawable.profile)
+            error = painterResource(id = R.drawable.ic_failed)
         )
 
         Text(text = userName, style =  MaterialTheme.typography.headlineLarge, color =  MaterialTheme.colorScheme.primary)
