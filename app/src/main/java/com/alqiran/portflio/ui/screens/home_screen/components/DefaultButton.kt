@@ -26,7 +26,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import com.alqiran.portflio.ui.utils.NavigationType
-import kotlin.reflect.typeOf
 
 @Composable
 fun DefaultButton(
@@ -44,7 +43,7 @@ fun DefaultButton(
         val isPressed by interactionSource.collectIsPressedAsState()
 
         val backgroundColor by animateColorAsState(
-            label = "CV View Button",
+            label = "Button",
             targetValue = if (isPressed)
                 MaterialTheme.colorScheme.secondaryContainer
             else MaterialTheme.colorScheme.primaryContainer
@@ -52,17 +51,17 @@ fun DefaultButton(
 
         val scale: Float by animateFloatAsState(
             targetValue = if (isPressed) 0.95f else 1f,
-            label = "CV View Button"
+            label = "Button"
         )
 
         val borderColor by animateColorAsState(
             targetValue = if (isPressed) MaterialTheme.colorScheme.primaryContainer else Color.Transparent,
-            label = "CV View Button"
+            label = "Button"
         )
 
         val borderWidth by animateDpAsState(
             targetValue = if (isPressed) 3.dp else 0.dp,
-            label = "CV View Button"
+            label = "Button"
         )
 
         val elevation = if (isPressed) 2.dp else 8.dp

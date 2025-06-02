@@ -53,7 +53,6 @@ fun Courses(courses: List<CourseUiModel>) {
                     modifier = Modifier.padding(8.dp),
                     maxLines = 5,
                     overflow = TextOverflow.Ellipsis
-
                 )
             }
         }

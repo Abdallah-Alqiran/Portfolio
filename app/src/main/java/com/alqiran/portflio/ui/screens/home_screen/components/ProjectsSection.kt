@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
@@ -21,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -46,6 +48,7 @@ fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationActio
             Column(
                 modifier = Modifier
                     .padding(horizontal = 8.dp)
+                    .width(240.dp)
                     .clip(RoundedCornerShape(16.dp))
                     .background(MaterialTheme.colorScheme.surface)
                     .padding(bottom = 8.dp),
@@ -73,6 +76,7 @@ fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationActio
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(8.dp),
                     maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
                 Box(
                     modifier = Modifier.width(240.dp),
