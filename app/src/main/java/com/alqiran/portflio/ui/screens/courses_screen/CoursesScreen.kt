@@ -12,6 +12,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alqiran.portflio.ui.screens.courses_screen.viewModel.CoursesViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import com.alqiran.portflio.ui.components.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.LoadingProgressIndicator
 import com.alqiran.portflio.ui.screens.courses_screen.viewModel.CoursesState
 
 @Composable
@@ -24,11 +26,14 @@ fun CoursesScreen() {
 
     when (coursesState) {
         is CoursesState.Error -> {
-            Text((coursesState as CoursesState.Error).error)
+            FailedLoadingScreen(
+                onFailed = { coursesViewModel.fetchAllCourses() },
+                errorMessage = (coursesState as CoursesState.Error).error
+            )
         }
 
         CoursesState.Loading -> {
-
+            LoadingProgressIndicator()
         }
 
         CoursesState.None -> Unit

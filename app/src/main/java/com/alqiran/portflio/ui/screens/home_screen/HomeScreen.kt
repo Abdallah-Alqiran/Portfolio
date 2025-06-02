@@ -1,13 +1,13 @@
 package com.alqiran.portflio.ui.screens.home_screen
 
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -35,7 +35,8 @@ import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserState
 import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserViewModel
 import com.alqiran.portflio.ui.utils.NavigationType
 import androidx.compose.runtime.getValue
-
+import com.alqiran.portflio.ui.components.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.LoadingProgressIndicator
 
 
 @Composable
@@ -50,14 +51,24 @@ fun HomeScreen(
         userViewModel.fetchUserData()
     }
 
-    when(userData) {
+    when (userData) {
         is UserState.Success -> {
             HomeContentScreen((userData as UserState.Success).userData, onNavigate)
         }
+
         is UserState.Error -> {
-            Text((userData as UserState.Error).error)
+            FailedLoadingScreen(
+                onFailed = {
+                    Log.d("Al-qiran", "From Home Screen")
+                    userViewModel.fetchUserData()
+                },
+                errorMessage = (userData as UserState.Error).error
+            )
         }
-        UserState.Loading -> {}
+
+        UserState.Loading -> {
+            LoadingProgressIndicator()
+        }
         UserState.None -> Unit
     }
 
@@ -69,7 +80,7 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
     val context = LocalContext.current
     val listState = rememberLazyListState()
 
-    LazyColumn (
+    LazyColumn(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
             .fillMaxSize()
@@ -88,7 +99,10 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
 
         item {
             if (userData.cvUrl.isValidUrl()) {
-                DefaultButton(text = "Download CV", navigationType = NavigationType.IntentNavigation(userData.cvUrl!!, context))
+                DefaultButton(
+                    text = "Download CV",
+                    navigationType = NavigationType.IntentNavigation(userData.cvUrl!!, context)
+                )
             }
         }
 
@@ -124,7 +138,11 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             if (userData.projects != null) {
                 HeadlineTextWidget(text = "Projects")
                 ProjectsSection(userData.projects, onNavigate)
-                ViewAllTextButton("Projects", onNavigate = onNavigate, navigateAction = NavigationAction.ToViewAllProjects(userData.projects))
+                ViewAllTextButton(
+                    "Projects",
+                    onNavigate = onNavigate,
+                    navigateAction = NavigationAction.ToViewAllProjects(userData.projects)
+                )
             }
         }
 
@@ -132,7 +150,11 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             if (userData.courses != null) {
                 HeadlineTextWidget(text = "Courses")
                 Courses(userData.courses)
-                ViewAllTextButton("Courses", onNavigate = onNavigate, navigateAction = NavigationAction.ToViewAllCourses(userData.courses))
+                ViewAllTextButton(
+                    "Courses",
+                    onNavigate = onNavigate,
+                    navigateAction = NavigationAction.ToViewAllCourses(userData.courses)
+                )
             }
         }
 

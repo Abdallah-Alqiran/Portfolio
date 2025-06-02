@@ -12,6 +12,8 @@ import com.alqiran.portflio.ui.navigation.NavigationAction
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.alqiran.portflio.ui.components.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.LoadingProgressIndicator
 import com.alqiran.portflio.ui.screens.projects_screen.viewModel.ProjectsState
 import com.alqiran.portflio.ui.screens.projects_screen.viewModel.ProjectsViewModel
 
@@ -27,14 +29,14 @@ fun ProjectsScreen(onNavigate: (NavigationAction) -> Unit) {
 
     when (projectsState) {
         is ProjectsState.Error -> {
-            Text((projectsState as ProjectsState.Error).error)
+            FailedLoadingScreen(
+                onFailed = { projectsViewModel.fetchAllProjects() },
+                errorMessage = (projectsState as ProjectsState.Error).error
+            )
         }
-
         ProjectsState.Loading -> {
-
+            LoadingProgressIndicator()
         }
-
-        ProjectsState.None -> Unit
         is ProjectsState.Success -> {
             Column(
                 modifier = Modifier
@@ -44,6 +46,7 @@ fun ProjectsScreen(onNavigate: (NavigationAction) -> Unit) {
                 Text((projectsState as ProjectsState.Success).projects.toString())
             }
         }
+        ProjectsState.None -> Unit
     }
 
 

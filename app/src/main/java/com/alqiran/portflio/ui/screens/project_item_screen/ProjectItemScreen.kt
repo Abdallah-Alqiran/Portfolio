@@ -12,6 +12,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alqiran.portflio.ui.screens.project_item_screen.viewModel.ProjectItemViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import com.alqiran.portflio.ui.components.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.LoadingProgressIndicator
 import com.alqiran.portflio.ui.screens.project_item_screen.viewModel.ProjectItemState
 
 
@@ -27,10 +29,14 @@ fun ProjectItemScreen(projectId: Int) {
 
     when(projectState) {
         is ProjectItemState.Error -> {
-            Text((projectState as ProjectItemState.Error).error)
+            FailedLoadingScreen(
+                onFailed = { projectItemViewModel.fetchProjectItem(projectId) },
+                errorMessage = (projectState as ProjectItemState.Error).error
+            )
         }
-        ProjectItemState.Loading -> {}
-        ProjectItemState.None -> {}
+        ProjectItemState.Loading -> {
+            LoadingProgressIndicator()
+        }
         is ProjectItemState.Success -> {
             Column(
                 modifier = Modifier.fillMaxSize()
@@ -39,6 +45,7 @@ fun ProjectItemScreen(projectId: Int) {
                 Text((projectState as ProjectItemState.Success).project.toString())
             }
         }
+        ProjectItemState.None -> {}
     }
 
 }

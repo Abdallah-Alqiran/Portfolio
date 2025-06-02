@@ -1,6 +1,10 @@
 package com.alqiran.portflio.data.datasourses.remote
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.util.Log
+import com.alqiran.portflio.BaseApplication
 import com.alqiran.portflio.data.datasourses.remote.model.Course
 import com.alqiran.portflio.data.datasourses.remote.model.Project
 import com.alqiran.portflio.data.datasourses.remote.model.User
@@ -11,11 +15,40 @@ import com.google.firebase.firestore.Source
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
+
+fun isOnline(): Boolean {
+    val context = BaseApplication.appContext.applicationContext
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val network = connectivityManager.activeNetwork ?: return false
+    val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+    return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+}
+
+
 class RemoteDataSource @Inject constructor(
     private val firestore: FirebaseFirestore
 ) {
 
     suspend fun getAllUserData(): User {
+
+        if (!isOnline()) {
+            try {
+                val localSnapshot = firestore.collection(COLLECTION_NAME)
+                    .document(DOCUMENT_USER_NAME)
+                    .get(Source.CACHE)
+                    .await()
+                if (localSnapshot.exists()) {
+                    val cachedUser = localSnapshot.toObject(User::class.java)
+                    if (cachedUser != null) {
+                        Log.d("Al-qiran", "From Cashed Data")
+                        return cachedUser
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d("Al-qiran", "Cached Exception ${e.message.toString()}")
+            }
+        }
 
         try {
             val serverSnapshot = firestore.collection(COLLECTION_NAME)
@@ -24,11 +57,20 @@ class RemoteDataSource @Inject constructor(
                 .await()
 
             if (serverSnapshot.exists()) {
-                return serverSnapshot.toObject(User::class.java)!!
+                val serverUser = serverSnapshot.toObject(User::class.java)
+                if (serverUser != null) {
+                    Log.d("Al-qiran", "From server Data")
+
+                    return serverUser
+                } else {
+                    throw IllegalStateException("Server user data is corrupted or null")
+                }
             } else {
                 throw NoSuchElementException("No user data exists on the server")
             }
         } catch (serverException: Exception) {
+            Log.d("Al-qiran", "Server Exception ${serverException.message.toString()}")
+
             throw serverException
         }
     }
@@ -67,7 +109,7 @@ class RemoteDataSource @Inject constructor(
         try {
             val userData = getAllUserData()
 
-            val project = userData.projects?.find {it.id == id}
+            val project = userData.projects?.find { it.id == id }
             if (project != null) {
                 return project
             } else {
