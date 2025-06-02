@@ -28,7 +28,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.alqiran.portflio.R
 import com.alqiran.portflio.ui.helper.isValidUrl
-import com.alqiran.portflio.ui.screens.home_screen.model.ContactAndAccountsUiModel
+import com.alqiran.portflio.ui.model.ContactAndAccountsUiModel
 
 
 @Composable

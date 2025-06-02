@@ -1,6 +1,6 @@
 package com.alqiran.portflio.ui.screens.projects_screen.viewModel
 
-import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
+import com.alqiran.portflio.ui.model.ProjectUiModel
 
 sealed class ProjectsState {
     object None: ProjectsState()

@@ -1,6 +1,6 @@
 package com.alqiran.portflio.ui.screens.courses_screen.viewModel
 
-import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
+import com.alqiran.portflio.ui.model.CourseUiModel
 
 
 sealed class CoursesState {

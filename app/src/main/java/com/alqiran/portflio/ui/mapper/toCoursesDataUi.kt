@@ -1,11 +1,7 @@
 package com.alqiran.portflio.ui.mapper
 
 import com.alqiran.portflio.data.datasourses.remote.model.Course
-import com.alqiran.portflio.data.datasourses.remote.model.Project
-import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
-import com.alqiran.portflio.ui.screens.home_screen.preview.project
-import kotlin.String
+import com.alqiran.portflio.ui.model.CourseUiModel
 
 fun List<Course>.toCoursesDataUi(): List<CourseUiModel> {
     return this.map { item ->

@@ -1,15 +1,15 @@
 package com.alqiran.portflio.ui.mapper
 
 import com.alqiran.portflio.data.datasourses.remote.model.User
-import com.alqiran.portflio.ui.screens.home_screen.model.ContactAndAccountsUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.EducationUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.ExperienceUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.SkillUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitleUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
+import com.alqiran.portflio.ui.model.ContactAndAccountsUiModel
+import com.alqiran.portflio.ui.model.CourseUiModel
+import com.alqiran.portflio.ui.model.EducationUiModel
+import com.alqiran.portflio.ui.model.ExperienceUiModel
+import com.alqiran.portflio.ui.model.ProjectUiModel
+import com.alqiran.portflio.ui.model.SkillUiModel
+import com.alqiran.portflio.ui.model.TechnologyUiModel
+import com.alqiran.portflio.ui.model.TechnologyTitleUiModel
+import com.alqiran.portflio.ui.model.UserUiModel
 
 fun User.toUserDataUi(): UserUiModel {
     return UserUiModel(

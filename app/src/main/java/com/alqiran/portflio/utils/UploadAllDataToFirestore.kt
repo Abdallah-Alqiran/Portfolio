@@ -1,6 +1,6 @@
 package com.alqiran.portflio.utils
 
-import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
+import com.alqiran.portflio.ui.model.UserUiModel
 import com.alqiran.portflio.utils.Constants.Companion.COLLECTION_NAME
 import com.google.firebase.firestore.FirebaseFirestore
 

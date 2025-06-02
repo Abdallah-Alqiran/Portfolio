@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.alqiran.portflio.ui.components.TwoItemsPerRow
-import com.alqiran.portflio.ui.screens.home_screen.model.TechnologyTitleUiModel
+import com.alqiran.portflio.ui.model.TechnologyTitleUiModel
 
 @Composable
 fun TechnologiesAndToolsSection(

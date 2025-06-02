@@ -30,7 +30,7 @@ import com.alqiran.portflio.ui.screens.home_screen.components.ProjectsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.SkillsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.TechnologiesAndToolsSection
 import com.alqiran.portflio.ui.screens.home_screen.components.TopTitleSection
-import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
+import com.alqiran.portflio.ui.model.UserUiModel
 import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserState
 import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserViewModel
 import com.alqiran.portflio.ui.utils.NavigationType

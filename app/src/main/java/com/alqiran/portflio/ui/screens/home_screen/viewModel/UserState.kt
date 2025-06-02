@@ -1,6 +1,6 @@
 package com.alqiran.portflio.ui.screens.home_screen.viewModel
 
-import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
+import com.alqiran.portflio.ui.model.UserUiModel
 
 sealed class UserState {
     object None: UserState()

@@ -9,7 +9,7 @@ import com.alqiran.portflio.data.datasourses.remote.model.Skill
 import com.alqiran.portflio.data.datasourses.remote.model.Technology
 import com.alqiran.portflio.data.datasourses.remote.model.TechnologyTitle
 import com.alqiran.portflio.data.datasourses.remote.model.User
-import com.alqiran.portflio.ui.screens.home_screen.model.UserUiModel
+import com.alqiran.portflio.ui.model.UserUiModel
 
 fun UserUiModel.toUserDataModel(): User {
     return User(

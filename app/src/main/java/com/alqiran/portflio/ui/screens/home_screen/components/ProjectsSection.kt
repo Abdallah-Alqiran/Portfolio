@@ -24,7 +24,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.alqiran.portflio.R
 import com.alqiran.portflio.ui.navigation.NavigationAction
-import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
+import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.utils.NavigationType
 
 @Composable

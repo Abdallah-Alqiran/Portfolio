@@ -1,7 +1,7 @@
 package com.alqiran.portflio.ui.navigation
 
-import com.alqiran.portflio.ui.screens.home_screen.model.CourseUiModel
-import com.alqiran.portflio.ui.screens.home_screen.model.ProjectUiModel
+import com.alqiran.portflio.ui.model.CourseUiModel
+import com.alqiran.portflio.ui.model.ProjectUiModel
 
 sealed class NavigationAction {
 

@@ -1,4 +1,4 @@
-package com.alqiran.portflio.ui.screens.home_screen.model
+package com.alqiran.portflio.ui.model
 
 data class ProjectUiModel(
     val id: Int = 0,

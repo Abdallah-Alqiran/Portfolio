@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.alqiran.portflio.ui.screens.home_screen.model.ExperienceUiModel
+import com.alqiran.portflio.ui.model.ExperienceUiModel
 import kotlin.collections.forEach
 
 @Composable
