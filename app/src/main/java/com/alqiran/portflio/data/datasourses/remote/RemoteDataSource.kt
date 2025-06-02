@@ -1,29 +1,17 @@
 package com.alqiran.portflio.data.datasourses.remote
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.util.Log
-import com.alqiran.portflio.BaseApplication
 import com.alqiran.portflio.data.datasourses.remote.model.Course
 import com.alqiran.portflio.data.datasourses.remote.model.Project
 import com.alqiran.portflio.data.datasourses.remote.model.User
 import com.alqiran.portflio.utils.Constants.Companion.COLLECTION_NAME
 import com.alqiran.portflio.utils.Constants.Companion.DOCUMENT_USER_NAME
+import com.alqiran.portflio.utils.isOnline
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Source
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-
-fun isOnline(): Boolean {
-    val context = BaseApplication.appContext.applicationContext
-    val connectivityManager =
-        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val network = connectivityManager.activeNetwork ?: return false
-    val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-    return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-}
 
 
 class RemoteDataSource @Inject constructor(
