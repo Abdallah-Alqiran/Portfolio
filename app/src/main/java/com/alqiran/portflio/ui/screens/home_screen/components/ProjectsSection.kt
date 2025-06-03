@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -32,21 +33,26 @@ import com.alqiran.portflio.ui.utils.NavigationType
 
 @Composable
 fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationAction) -> Unit) {
-
     val listState = rememberLazyListState()
     val context = LocalContext.current
 
     LazyRow(
         modifier = Modifier
-            .padding(vertical = 16.dp),
+            .padding(vertical = 24.dp),
         state = listState,
         horizontalArrangement = Arrangement.Center
     ) {
         items(projects) { project ->
             Column(
                 modifier = Modifier
-                    .padding(horizontal = 8.dp)
+                    .padding(horizontal = 12.dp)
                     .width(240.dp)
+                    .shadow(
+                        elevation = 6.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        ambientColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.8f),
+                        spotColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
+                    )
                     .clip(RoundedCornerShape(16.dp))
                     .background(MaterialTheme.colorScheme.surface)
                     .padding(bottom = 8.dp),
