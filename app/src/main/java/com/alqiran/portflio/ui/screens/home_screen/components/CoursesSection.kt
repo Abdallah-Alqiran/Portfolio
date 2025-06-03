@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.alqiran.portflio.ui.model.CourseUiModel
@@ -34,6 +35,12 @@ fun Courses(courses: List<CourseUiModel>) {
                     .width(240.dp)
                     .aspectRatio(16f / 9f)
                     .padding(horizontal = 8.dp)
+                    .shadow(
+                        elevation = 6.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        ambientColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.8f),
+                        spotColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
+                    )
                     .clip(RoundedCornerShape(16.dp))
                     .background(MaterialTheme.colorScheme.surface)
                     .padding(bottom = 8.dp),
