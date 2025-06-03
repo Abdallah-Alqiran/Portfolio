@@ -6,7 +6,7 @@ import com.alqiran.portflio.ui.model.ProjectUiModel
 fun Project.toProjectItemDataUi(): ProjectUiModel {
     return ProjectUiModel(
         id = this.id,
-        image = this.image,
+        image = this.image.toFormatGoogleDriveLink(),
         projectName = this.projectName,
         description = this.description,
         url = this.url

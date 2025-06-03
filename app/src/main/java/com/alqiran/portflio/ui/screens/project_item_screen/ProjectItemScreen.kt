@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -22,17 +21,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.alqiran.portflio.R
-import com.alqiran.portflio.theme.PortflioTheme
 import com.alqiran.portflio.ui.components.FailedLoadingScreen
 import com.alqiran.portflio.ui.components.HeadlineTextWidget
 import com.alqiran.portflio.ui.components.LoadingProgressIndicator
 import com.alqiran.portflio.ui.model.ProjectUiModel
-import com.alqiran.portflio.ui.navigation.NavigationAction
 import com.alqiran.portflio.ui.screens.home_screen.components.DefaultButton
 import com.alqiran.portflio.ui.screens.project_item_screen.viewModel.ProjectItemState
 import com.alqiran.portflio.ui.utils.NavigationType
