@@ -15,13 +15,13 @@ fun User.toUserDataUi(): UserUiModel {
     return UserUiModel(
         userName = this.userName,
         jobTitle = this.jobTitle,
-        userImage = this.userImage?.toFormatGoogleDriveLink(),
+        userImage = this.userImage,
         about = this.about,
         cvUrl = this.cvUrl,
         projects = this.projects?.map { project ->
             ProjectUiModel(
                 id = project.id,
-                image = project.image.toFormatGoogleDriveLink(),
+                image = project.image,
                 projectName = project.projectName,
                 description = project.description,
                 url = project.url

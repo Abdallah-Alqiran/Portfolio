@@ -7,7 +7,7 @@ fun List<Project>.toProjectsDataUi(): List<ProjectUiModel> {
     return this.map { item ->
         ProjectUiModel(
             id = item.id,
-            image = item.image.toFormatGoogleDriveLink(),
+            image = item.image,
             projectName = item.projectName,
             description = item.description,
             url = item.url

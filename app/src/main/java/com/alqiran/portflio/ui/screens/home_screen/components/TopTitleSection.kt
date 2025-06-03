@@ -2,7 +2,6 @@ package com.alqiran.portflio.ui.screens.home_screen.components
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -29,6 +28,7 @@ import coil.request.ImageRequest
 import com.alqiran.portflio.R
 import com.alqiran.portflio.ui.helper.isValidUrl
 import com.alqiran.portflio.ui.model.ContactAndAccountsUiModel
+import androidx.core.net.toUri
 
 
 @Composable
@@ -41,7 +41,8 @@ fun TopTitleSection(
 ) {
 
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
             .padding(top = 32.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -73,27 +74,28 @@ fun TopTitleSection(
         ) {
 
             accounts!!.forEach { item ->
-                val imageRes = when(item.webName) {
+                val imageRes: Int? = when(item.webName) {
                     "facebook" -> R.drawable.ic_facebook
                     "linkedin" -> R.drawable.ic_linkedin
                     "whatsapp" -> R.drawable.ic_whatsapp
-                    else -> R.drawable.notification
+                    else -> {null}
                 }
-
-                Image(
-                    painter = painterResource(id = imageRes),
-                    contentDescription = "icon image",
-                    modifier = Modifier
-                        .height(36.dp)
-                        .clip(CircleShape)
-                        .padding(horizontal = 4.dp)
-                        .clickable {
-                            if (item.url.isValidUrl()) {
-                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.url))
-                                context.startActivity(intent)
+                if (imageRes != null) {
+                    Image(
+                        painter = painterResource(id = imageRes),
+                        contentDescription = "icon image",
+                        modifier = Modifier
+                            .height(36.dp)
+                            .clip(CircleShape)
+                            .padding(horizontal = 4.dp)
+                            .clickable {
+                                if (item.url.isValidUrl()) {
+                                    val intent = Intent(Intent.ACTION_VIEW, item.url.toUri())
+                                    context.startActivity(intent)
+                                }
                             }
-                        }
-                )
+                    )
+                }
             }
         }
     }
