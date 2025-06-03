@@ -1,7 +1,9 @@
 package com.alqiran.portflio.utils
 
+import com.alqiran.portflio.ui.model.ContactAndAccountsUiModel
 import com.alqiran.portflio.ui.model.UserUiModel
 import com.alqiran.portflio.utils.Constants.Companion.COLLECTION_NAME
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -70,6 +72,17 @@ fun UserUiModel.toMap(): Map<String, Any?> {
             )
         }
     )
+}
+
+fun uploadContact() {
+    val contact = ContactAndAccountsUiModel(
+        id = 4,
+        webName = "leetcode",
+        url = "https://leetcode.com/u/Abdallah_Alqiran/"
+    )
+    val db = FirebaseFirestore.getInstance()
+    val userRef = db.collection(COLLECTION_NAME).document(Constants.DOCUMENT_USER_NAME)
+    userRef.update("contactAndAccounts", FieldValue.arrayUnion(contact))
 }
 
 fun uploadAllUserData(user: UserUiModel, document: String) {
