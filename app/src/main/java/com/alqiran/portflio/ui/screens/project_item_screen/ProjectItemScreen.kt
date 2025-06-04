@@ -25,9 +25,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.alqiran.portflio.R
-import com.alqiran.portflio.ui.components.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.loading_and_failed.FailedLoadingScreen
 import com.alqiran.portflio.ui.components.HeadlineTextWidget
-import com.alqiran.portflio.ui.components.LoadingProgressIndicator
+import com.alqiran.portflio.ui.components.loading_and_failed.LoadingProgressIndicator
 import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.screens.home_screen.components.DefaultButton
 import com.alqiran.portflio.ui.screens.project_item_screen.viewModel.ProjectItemState

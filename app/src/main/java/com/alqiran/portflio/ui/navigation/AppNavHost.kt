@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.alqiran.portflio.ui.components.HomeTopBar
+import com.alqiran.portflio.ui.components.bars.TopBar
 import com.alqiran.portflio.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portflio.ui.screens.home_screen.HomeScreen
 import com.alqiran.portflio.ui.screens.project_item_screen.ProjectItemScreen
@@ -42,10 +42,10 @@ fun AppNavHost() {
     Scaffold(
         topBar = {
             when(topBar.value) {
-                "Home" -> { HomeTopBar("Home", onClick = {}) }
-                "Project" -> { HomeTopBar("Project", onClick = { navController.popBackStack() }) }
-                "Projects" -> { HomeTopBar("Projects", onClick = { navController.popBackStack() }) }
-                "Courses" -> { HomeTopBar("Courses", onClick = { navController.popBackStack() }) }
+                "Home" -> { TopBar("Home", onClick = {}) }
+                "Project" -> { TopBar("Project", onClick = { navController.popBackStack() }) }
+                "Projects" -> { TopBar("Projects", onClick = { navController.popBackStack() }) }
+                "Courses" -> { TopBar("Courses", onClick = { navController.popBackStack() }) }
             }
         }
     ) { paddingValues ->

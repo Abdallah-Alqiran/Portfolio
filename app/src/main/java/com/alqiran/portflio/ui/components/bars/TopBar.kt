@@ -1,4 +1,4 @@
-package com.alqiran.portflio.ui.components
+package com.alqiran.portflio.ui.components.bars
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,7 +28,7 @@ import com.alqiran.portflio.theme.PortflioTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeTopBar(title: String, onClick:() -> Unit) {
+fun TopBar(title: String, onClick:() -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -71,6 +71,6 @@ fun HomeTopBar(title: String, onClick:() -> Unit) {
 @Composable
 private fun Prev() {
     PortflioTheme {
-        HomeTopBar("Home", onClick = {})
+        TopBar("Home", onClick = {})
     }
 }

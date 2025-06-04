@@ -3,16 +3,11 @@ package com.alqiran.portflio.ui.screens.courses_screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,10 +18,9 @@ import com.alqiran.portflio.ui.screens.courses_screen.viewModel.CoursesViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.alqiran.portflio.ui.components.FailedLoadingScreen
-import com.alqiran.portflio.ui.components.LoadingProgressIndicator
+import com.alqiran.portflio.ui.components.loading_and_failed.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.loading_and_failed.LoadingProgressIndicator
 import com.alqiran.portflio.ui.model.CourseUiModel
 import com.alqiran.portflio.ui.screens.courses_screen.viewModel.CoursesState
 

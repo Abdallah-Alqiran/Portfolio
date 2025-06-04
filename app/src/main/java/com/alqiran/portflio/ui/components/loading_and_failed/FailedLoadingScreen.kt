@@ -1,4 +1,4 @@
-package com.alqiran.portflio.ui.components
+package com.alqiran.portflio.ui.components.loading_and_failed
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement

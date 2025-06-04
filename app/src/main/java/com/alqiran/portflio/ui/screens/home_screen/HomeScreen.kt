@@ -35,8 +35,8 @@ import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserState
 import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserViewModel
 import com.alqiran.portflio.ui.utils.NavigationType
 import androidx.compose.runtime.getValue
-import com.alqiran.portflio.ui.components.FailedLoadingScreen
-import com.alqiran.portflio.ui.components.LoadingProgressIndicator
+import com.alqiran.portflio.ui.components.loading_and_failed.FailedLoadingScreen
+import com.alqiran.portflio.ui.components.loading_and_failed.LoadingProgressIndicator
 
 
 @Composable
