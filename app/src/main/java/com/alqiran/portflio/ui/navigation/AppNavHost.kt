@@ -52,6 +52,7 @@ fun AppNavHost() {
                 "Project" -> { TopBar("Project", onClick = { navController.popBackStack() }) }
                 "Projects" -> { TopBar("Projects", onClick = { navController.popBackStack() }) }
                 "Courses" -> { TopBar("Courses", onClick = { navController.popBackStack() }) }
+                "Message" -> { TopBar("Contact with Me", onClick = { navController.popBackStack() }) }
             }
         },
         bottomBar = {
@@ -68,6 +69,7 @@ fun AppNavHost() {
                             }
                             1 -> navController.navigate(Screens.ProjectsScreenRoute.route)
                             2 -> navController.navigate(Screens.CoursesScreenRoute.route)
+                            3 -> navController.navigate(Screens.MessageScreenRoute.route)
                         }
                     },
                 )
@@ -123,6 +125,12 @@ fun AppNavHost() {
                 selectedIndex = 2
                 topBar.value = "Courses"
                 CoursesScreen()
+            }
+
+            // Message Screen
+            composable(Screens.MessageScreenRoute.route) {
+                selectedIndex = 3
+                topBar.value = "Message"
             }
         }
     }
