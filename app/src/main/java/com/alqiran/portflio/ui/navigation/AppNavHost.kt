@@ -3,12 +3,16 @@ package com.alqiran.portflio.ui.navigation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.alqiran.portflio.ui.components.bars.BottomBar
 import com.alqiran.portflio.ui.components.bars.TopBar
 import com.alqiran.portflio.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portflio.ui.screens.home_screen.HomeScreen
@@ -20,6 +24,7 @@ fun AppNavHost() {
     val navController = rememberNavController()
 
     val topBar = remember { mutableStateOf("") }
+    var selectedIndex by remember { mutableIntStateOf(-1) }
 
 
     val onNavigate: (NavigationAction) -> Unit = { action ->
@@ -47,6 +52,25 @@ fun AppNavHost() {
                 "Projects" -> { TopBar("Projects", onClick = { navController.popBackStack() }) }
                 "Courses" -> { TopBar("Courses", onClick = { navController.popBackStack() }) }
             }
+        },
+        bottomBar = {
+            if (selectedIndex != -1) {
+                BottomBar(
+                    selectedIndex = selectedIndex,
+                    onItemSelected = {
+                        selectedIndex = it
+                        when (selectedIndex) {
+                            0 -> {
+                                navController.navigate(Screens.HomeScreenRoute.route) {
+                                    popUpTo(0) { inclusive = true }
+                                }
+                            }
+                            1 -> navController.navigate(Screens.ProjectsScreenRoute.route)
+                            2 -> navController.navigate(Screens.CoursesScreenRoute.route)
+                        }
+                    },
+                )
+            }
         }
     ) { paddingValues ->
         NavHost(
@@ -59,6 +83,7 @@ fun AppNavHost() {
 
             // Home Screen
             composable(Screens.HomeScreenRoute.route) {
+                selectedIndex = 0
                 topBar.value = "Home"
                 HomeScreen(
                     onNavigate
@@ -67,6 +92,7 @@ fun AppNavHost() {
 
             // Project Item
             composable(Screens.ProjectItemRoute.route) { navBackStackEntry ->
+                selectedIndex = 1
                 topBar.value = "Project"
                 val projectId = navBackStackEntry.arguments?.getString("project_id")
 
@@ -77,6 +103,7 @@ fun AppNavHost() {
 
             // All Project Screen
             composable(Screens.ProjectsScreenRoute.route) {
+                selectedIndex = 1
                 topBar.value = "Projects"
                 ProjectsScreen(
                     onNavigate
@@ -85,6 +112,7 @@ fun AppNavHost() {
 
             // All Courses Screen
             composable(Screens.CoursesScreenRoute.route) {
+                selectedIndex = 2
                 topBar.value = "Courses"
                 CoursesScreen()
             }
