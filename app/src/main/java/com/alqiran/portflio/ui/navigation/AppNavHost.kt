@@ -18,6 +18,7 @@ import com.alqiran.portflio.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portflio.ui.screens.home_screen.HomeScreen
 import com.alqiran.portflio.ui.screens.project_item_screen.ProjectItemScreen
 import com.alqiran.portflio.ui.screens.projects_screen.ProjectsScreen
+import com.alqiran.portflio.ui.screens.splash.SplashScreen
 
 @Composable
 fun AppNavHost() {
@@ -75,11 +76,18 @@ fun AppNavHost() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Screens.HomeScreenRoute.route,
+            startDestination = Screens.SplashScreenRoute.route,
             modifier = Modifier.padding(paddingValues)
         ) {
 
             // Splash
+            composable(Screens.SplashScreenRoute.route) {
+                selectedIndex = -1
+                topBar.value = "Splash"
+                SplashScreen {
+                    navController.navigate(Screens.HomeScreenRoute.route)
+                }
+            }
 
             // Home Screen
             composable(Screens.HomeScreenRoute.route) {
