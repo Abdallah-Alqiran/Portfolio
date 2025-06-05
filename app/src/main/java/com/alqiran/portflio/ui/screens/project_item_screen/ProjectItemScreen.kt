@@ -31,7 +31,7 @@ import com.alqiran.portflio.ui.components.loading_and_failed.LoadingProgressIndi
 import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.screens.home_screen.components.DefaultButton
 import com.alqiran.portflio.ui.screens.project_item_screen.viewModel.ProjectItemState
-import com.alqiran.portflio.ui.utils.NavigationType
+import com.alqiran.portflio.ui.utils.ButtonType
 
 
 @Composable
@@ -114,7 +114,7 @@ fun ProjectItemContentScreen(project: ProjectUiModel) {
 
         DefaultButton(
             text = "View on GitHub",
-            navigationType = NavigationType.IntentNavigation(url = project.url, context = context)
+            buttonType = ButtonType.IntentNavigation(url = project.url, context = context)
         )
 
         Box(Modifier.padding(8.dp))

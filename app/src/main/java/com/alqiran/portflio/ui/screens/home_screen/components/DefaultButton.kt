@@ -1,6 +1,7 @@
 package com.alqiran.portflio.ui.screens.home_screen.components
 
 import android.content.Intent
+import android.widget.Toast
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
@@ -25,12 +26,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import com.alqiran.portflio.ui.utils.NavigationType
+import com.alqiran.portflio.ui.utils.ButtonType
 
 @Composable
 fun DefaultButton(
     text: String,
-    navigationType: NavigationType
+    buttonType: ButtonType
 ) {
     val context = LocalContext.current
 
@@ -68,19 +69,22 @@ fun DefaultButton(
 
         Button(
             onClick = {
-                when (navigationType) {
-                    is NavigationType.IntentNavigation -> {
+                when (buttonType) {
+                    is ButtonType.IntentNavigation -> {
                         context.startActivity(
                             Intent(
                                 Intent.ACTION_VIEW,
-                                (navigationType.url).toUri()
+                                (buttonType.url).toUri()
                             )
                         )
                     }
-                    is NavigationType.ScreenNavigation -> {
-                        navigationType.onNavigate(
-                            navigationType.navigationAction
+                    is ButtonType.ScreenNavigation -> {
+                        buttonType.onNavigate(
+                            buttonType.navigationAction
                         )
+                    }
+                    is ButtonType.ToastMessage -> {
+                        Toast.makeText(context, buttonType.message, Toast.LENGTH_LONG).show()
                     }
                 }
             },

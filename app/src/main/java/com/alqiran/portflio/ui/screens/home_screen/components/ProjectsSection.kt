@@ -29,7 +29,7 @@ import coil.request.ImageRequest
 import com.alqiran.portflio.R
 import com.alqiran.portflio.ui.navigation.NavigationAction
 import com.alqiran.portflio.ui.model.ProjectUiModel
-import com.alqiran.portflio.ui.utils.NavigationType
+import com.alqiran.portflio.ui.utils.ButtonType
 
 @Composable
 fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationAction) -> Unit) {
@@ -88,7 +88,7 @@ fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationActio
                 ) {
                     DefaultButton(
                         "Show Details",
-                        navigationType = NavigationType.ScreenNavigation(
+                        buttonType = ButtonType.ScreenNavigation(
                             navigationAction = NavigationAction.ToProject(project.id.toString()),
                             onNavigate = onNavigate
                         )

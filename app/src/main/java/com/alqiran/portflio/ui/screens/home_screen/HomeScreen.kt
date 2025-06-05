@@ -33,7 +33,7 @@ import com.alqiran.portflio.ui.screens.home_screen.components.TopTitleSection
 import com.alqiran.portflio.ui.model.UserUiModel
 import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserState
 import com.alqiran.portflio.ui.screens.home_screen.viewModel.UserViewModel
-import com.alqiran.portflio.ui.utils.NavigationType
+import com.alqiran.portflio.ui.utils.ButtonType
 import androidx.compose.runtime.getValue
 import com.alqiran.portflio.ui.components.loading_and_failed.FailedLoadingScreen
 import com.alqiran.portflio.ui.components.loading_and_failed.LoadingProgressIndicator
@@ -101,7 +101,7 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             if (userData.cvUrl.isValidUrl()) {
                 DefaultButton(
                     text = "Download CV",
-                    navigationType = NavigationType.IntentNavigation(userData.cvUrl!!, context)
+                    buttonType = ButtonType.IntentNavigation(userData.cvUrl!!, context)
                 )
             }
         }

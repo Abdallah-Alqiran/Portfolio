@@ -36,7 +36,7 @@ import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.screens.home_screen.components.DefaultButton
 import com.alqiran.portflio.ui.screens.projects_screen.viewModel.ProjectsState
 import com.alqiran.portflio.ui.screens.projects_screen.viewModel.ProjectsViewModel
-import com.alqiran.portflio.ui.utils.NavigationType
+import com.alqiran.portflio.ui.utils.ButtonType
 
 
 @Composable
@@ -121,7 +121,7 @@ fun ProjectsContentScreen(projects: List<ProjectUiModel>, onNavigate: (Navigatio
                     ) {
                         DefaultButton(
                             "Details",
-                            navigationType = NavigationType.ScreenNavigation(
+                            buttonType = ButtonType.ScreenNavigation(
                                 navigationAction = NavigationAction.ToProject(project.id.toString()),
                                 onNavigate = onNavigate
                             )

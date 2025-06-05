@@ -16,6 +16,7 @@ import com.alqiran.portflio.ui.components.bars.BottomBar
 import com.alqiran.portflio.ui.components.bars.TopBar
 import com.alqiran.portflio.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portflio.ui.screens.home_screen.HomeScreen
+import com.alqiran.portflio.ui.screens.message_screen.MessageScreen
 import com.alqiran.portflio.ui.screens.project_item_screen.ProjectItemScreen
 import com.alqiran.portflio.ui.screens.projects_screen.ProjectsScreen
 import com.alqiran.portflio.ui.screens.splash.SplashScreen
@@ -52,7 +53,7 @@ fun AppNavHost() {
                 "Project" -> { TopBar("Project", onClick = { navController.popBackStack() }) }
                 "Projects" -> { TopBar("Projects", onClick = { navController.popBackStack() }) }
                 "Courses" -> { TopBar("Courses", onClick = { navController.popBackStack() }) }
-                "Message" -> { TopBar("Contact with Me", onClick = { navController.popBackStack() }) }
+                "Message" -> { TopBar("Contact Me", onClick = { navController.popBackStack() }) }
             }
         },
         bottomBar = {
@@ -131,6 +132,7 @@ fun AppNavHost() {
             composable(Screens.MessageScreenRoute.route) {
                 selectedIndex = 3
                 topBar.value = "Message"
+                MessageScreen()
             }
         }
     }
