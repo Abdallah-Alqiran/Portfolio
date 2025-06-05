@@ -1,12 +1,15 @@
 package com.alqiran.portflio.data.datasourses.remote
 
 import android.util.Log
+import com.alqiran.portflio.data.datasourses.remote.model.ContactMessage
 import com.alqiran.portflio.data.datasourses.remote.model.Course
 import com.alqiran.portflio.data.datasourses.remote.model.Project
 import com.alqiran.portflio.data.datasourses.remote.model.User
+import com.alqiran.portflio.utils.Constants
 import com.alqiran.portflio.utils.Constants.Companion.COLLECTION_NAME
 import com.alqiran.portflio.utils.Constants.Companion.DOCUMENT_USER_NAME
 import com.alqiran.portflio.utils.isOnline
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Source
 import kotlinx.coroutines.tasks.await
@@ -103,6 +106,19 @@ class RemoteDataSource @Inject constructor(
             } else {
                 throw NoSuchElementException("No Project with id $id")
             }
+        } catch (e: Exception) {
+            throw e
+        }
+    }
+
+
+    fun sendMessage(contactMessage: ContactMessage) {
+        try {
+            val message = firestore.collection(COLLECTION_NAME).document(DOCUMENT_USER_NAME)
+            message.update("contactMessage", FieldValue.arrayUnion(contactMessage))
+                .addOnFailureListener {
+                    throw Exception("There is Error sending message")
+                }
         } catch (e: Exception) {
             throw e
         }

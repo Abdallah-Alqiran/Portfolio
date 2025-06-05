@@ -9,5 +9,5 @@ sealed class ButtonType {
 
     data class ScreenNavigation(val onNavigate: (NavigationAction) -> Unit, val navigationAction: NavigationAction): ButtonType()
 
-    data class ToastMessage(val message: String): ButtonType()
+    data class MessageOnClick(val onSendMessage:()->Unit): ButtonType()
 }

@@ -1,6 +1,7 @@
 package com.alqiran.portflio.data.datasourses.remote.repository
 
 import com.alqiran.portflio.data.datasourses.remote.RemoteDataSource
+import com.alqiran.portflio.data.datasourses.remote.model.ContactMessage
 import com.alqiran.portflio.data.datasourses.remote.model.Course
 import com.alqiran.portflio.data.datasourses.remote.model.Project
 import com.alqiran.portflio.data.datasourses.remote.model.User
@@ -25,5 +26,9 @@ class FirebaseRepositoryImpl @Inject constructor(
 
     override suspend fun getProjectItem(id: Int): Project {
         return remoteDataSource.getProjectItem(id)
+    }
+
+    override fun sendMessage(contactMessage: ContactMessage) {
+        return remoteDataSource.sendMessage(contactMessage)
     }
 }

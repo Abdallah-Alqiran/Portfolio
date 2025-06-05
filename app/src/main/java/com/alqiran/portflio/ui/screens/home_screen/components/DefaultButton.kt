@@ -83,8 +83,8 @@ fun DefaultButton(
                             buttonType.navigationAction
                         )
                     }
-                    is ButtonType.ToastMessage -> {
-                        Toast.makeText(context, buttonType.message, Toast.LENGTH_LONG).show()
+                    is ButtonType.MessageOnClick -> {
+                        buttonType.onSendMessage()
                     }
                 }
             },
