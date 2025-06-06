@@ -9,8 +9,8 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="/mnt/EveryThing/Desktop/software/Kotlin/portfolio" />
-            <option value="/mnt/EveryThing/Desktop/software/Kotlin/portfolio/app" />
+            <option value="/mnt/EveryThing/Desktop/software/Kotlin/newPortfolioMain/Portfolio" />
+            <option value="/mnt/EveryThing/Desktop/software/Kotlin/newPortfolioMain/Portfolio/app" />
           </set>
         </option>
       </GradleProjectSettings>
