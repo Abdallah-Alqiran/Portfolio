@@ -1,6 +1,5 @@
 package com.alqiran.portflio.ui.screens.message_screen
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -11,7 +10,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,7 +29,6 @@ import com.alqiran.portflio.ui.screens.message_screen.components.CustomOutlinedT
 import com.alqiran.portflio.ui.screens.message_screen.viewModel.MessageState
 import com.alqiran.portflio.ui.screens.message_screen.viewModel.MessageViewModel
 import com.alqiran.portflio.ui.utils.ButtonType
-import okhttp3.internal.wait
 
 @Composable
 fun MessageScreen() {

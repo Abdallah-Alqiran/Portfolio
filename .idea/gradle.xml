@@ -9,8 +9,19 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="/mnt/EveryThing/Desktop/software/Kotlin/portfolio" />
+            <option value="/mnt/EveryThing/Desktop/software/Kotlin/portfolio/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="testRunner" value="CHOOSE_PER_TEST" />
+        <option name="externalProjectPath" value="/mnt/EveryThing/Desktop/software/Kotlin/Portfolio Admin" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="/mnt/EveryThing/Desktop/software/Kotlin/Portfolio Admin" />
+            <option value="/mnt/EveryThing/Desktop/software/Kotlin/Portfolio Admin/app" />
           </set>
         </option>
       </GradleProjectSettings>

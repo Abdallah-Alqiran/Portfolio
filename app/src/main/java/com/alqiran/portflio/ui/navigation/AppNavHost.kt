@@ -20,6 +20,8 @@ import com.alqiran.portflio.ui.screens.message_screen.MessageScreen
 import com.alqiran.portflio.ui.screens.project_item_screen.ProjectItemScreen
 import com.alqiran.portflio.ui.screens.projects_screen.ProjectsScreen
 import com.alqiran.portflio.ui.screens.splash.SplashScreen
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Serializer
 
 @Composable
 fun AppNavHost() {
