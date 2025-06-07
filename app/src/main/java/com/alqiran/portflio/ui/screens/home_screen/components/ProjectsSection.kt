@@ -89,7 +89,7 @@ fun ProjectsSection(projects: List<ProjectUiModel>, onNavigate: (NavigationActio
                     DefaultButton(
                         "Show Details",
                         buttonType = ButtonType.ScreenNavigation(
-                            navigationAction = NavigationAction.ToProject(project.id.toString()),
+                            navigationAction = NavigationAction.ToProject(project),
                             onNavigate = onNavigate
                         )
                     )

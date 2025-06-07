@@ -1,5 +1,8 @@
 package com.alqiran.portflio.ui.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ProjectUiModel(
     val id: Int = 0,
     val image: String = "",

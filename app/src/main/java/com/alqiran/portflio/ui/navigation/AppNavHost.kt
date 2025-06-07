@@ -12,16 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.alqiran.portflio.ui.components.bars.BottomBar
 import com.alqiran.portflio.ui.components.bars.TopBar
+import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portflio.ui.screens.home_screen.HomeScreen
 import com.alqiran.portflio.ui.screens.message_screen.MessageScreen
 import com.alqiran.portflio.ui.screens.project_item_screen.ProjectItemScreen
 import com.alqiran.portflio.ui.screens.projects_screen.ProjectsScreen
 import com.alqiran.portflio.ui.screens.splash.SplashScreen
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlin.reflect.typeOf
+
 
 @Composable
 fun AppNavHost() {
@@ -34,14 +36,14 @@ fun AppNavHost() {
     val onNavigate: (NavigationAction) -> Unit = { action ->
         when (action) {
             is NavigationAction.ToProject -> {
-                navController.navigate(Screens.ProjectItemRoute.passId(action.projectId))
+                navController.navigate(ProjectItemRoute(project = action.project))
             }
 
             is NavigationAction.ToViewAllCourses -> {
-                navController.navigate(Screens.CoursesScreenRoute.route)
+                navController.navigate(CoursesScreenRoute)
             }
             is NavigationAction.ToViewAllProjects -> {
-                navController.navigate(Screens.ProjectsScreenRoute.route)
+                navController.navigate(ProjectsScreenRoute)
             }
             NavigationAction.Nothing -> {}
         }
@@ -66,13 +68,13 @@ fun AppNavHost() {
                         selectedIndex = it
                         when (selectedIndex) {
                             0 -> {
-                                navController.navigate(Screens.HomeScreenRoute.route) {
+                                navController.navigate(HomeScreenRoute) {
                                     popUpTo(0) { inclusive = true }
                                 }
                             }
-                            1 -> navController.navigate(Screens.ProjectsScreenRoute.route)
-                            2 -> navController.navigate(Screens.CoursesScreenRoute.route)
-                            3 -> navController.navigate(Screens.MessageScreenRoute.route)
+                            1 -> navController.navigate(ProjectsScreenRoute)
+                            2 -> navController.navigate(CoursesScreenRoute)
+                            3 -> navController.navigate(MessageScreenRoute)
                         }
                     },
                 )
@@ -81,21 +83,21 @@ fun AppNavHost() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Screens.SplashScreenRoute.route,
+            startDestination = SplashScreenRoute,
             modifier = Modifier.padding(paddingValues)
         ) {
 
             // Splash
-            composable(Screens.SplashScreenRoute.route) {
+            composable<SplashScreenRoute> {
                 selectedIndex = -1
                 topBar.value = "Splash"
                 SplashScreen {
-                    navController.navigate(Screens.HomeScreenRoute.route)
+                    navController.navigate(HomeScreenRoute)
                 }
             }
 
             // Home Screen
-            composable(Screens.HomeScreenRoute.route) {
+            composable<HomeScreenRoute> {
                 selectedIndex = 0
                 topBar.value = "Home"
                 HomeScreen(
@@ -104,18 +106,22 @@ fun AppNavHost() {
             }
 
             // Project Item
-            composable(Screens.ProjectItemRoute.route) { navBackStackEntry ->
+            composable<ProjectItemRoute>(
+                typeMap = mapOf(
+                    typeOf<ProjectUiModel>() to CustomNavType.projectItemType
+                )
+            ) { navBackStackEntry ->
                 selectedIndex = 1
                 topBar.value = "Project"
-                val projectId = navBackStackEntry.arguments?.getString("project_id")
 
+                val arguments = navBackStackEntry.toRoute<ProjectItemRoute>()
                 ProjectItemScreen (
-                    projectId!!.toInt()
+                    arguments.project
                 )
             }
 
             // All Project Screen
-            composable(Screens.ProjectsScreenRoute.route) {
+            composable<ProjectsScreenRoute> {
                 selectedIndex = 1
                 topBar.value = "Projects"
                 ProjectsScreen(
@@ -124,14 +130,14 @@ fun AppNavHost() {
             }
 
             // All Courses Screen
-            composable(Screens.CoursesScreenRoute.route) {
+            composable<CoursesScreenRoute> {
                 selectedIndex = 2
                 topBar.value = "Courses"
                 CoursesScreen()
             }
 
             // Message Screen
-            composable(Screens.MessageScreenRoute.route) {
+            composable<MessageScreenRoute> {
                 selectedIndex = 3
                 topBar.value = "Message"
                 MessageScreen()

@@ -116,8 +116,9 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
 
 
-    // Serialization
+    // Serialization and navigation
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.compose.navigation)
 
 
     // Graphs

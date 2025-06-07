@@ -122,7 +122,7 @@ fun ProjectsContentScreen(projects: List<ProjectUiModel>, onNavigate: (Navigatio
                         DefaultButton(
                             "Details",
                             buttonType = ButtonType.ScreenNavigation(
-                                navigationAction = NavigationAction.ToProject(project.id.toString()),
+                                navigationAction = NavigationAction.ToProject(project),
                                 onNavigate = onNavigate
                             )
                         )
