@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.alqiran.portflio.ui.components.bars.BottomBar
 import com.alqiran.portflio.ui.components.bars.TopBar
+import com.alqiran.portflio.ui.model.CourseUiModel
 import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portflio.ui.screens.home_screen.HomeScreen
@@ -40,10 +41,10 @@ fun AppNavHost() {
             }
 
             is NavigationAction.ToViewAllCourses -> {
-                navController.navigate(CoursesScreenRoute)
+                navController.navigate(CoursesScreenRoute(courses = action.courses))
             }
             is NavigationAction.ToViewAllProjects -> {
-                navController.navigate(ProjectsScreenRoute)
+                navController.navigate(ProjectsScreenRoute(projects = action.projects))
             }
             NavigationAction.Nothing -> {}
         }
@@ -121,19 +122,32 @@ fun AppNavHost() {
             }
 
             // All Project Screen
-            composable<ProjectsScreenRoute> {
+            composable<ProjectsScreenRoute>(
+                typeMap = mapOf(
+                    typeOf<List<ProjectUiModel>>() to CustomNavType.projectsType
+                )
+            ) {
                 selectedIndex = 1
                 topBar.value = "Projects"
+
+                val arguments = it.toRoute<ProjectsScreenRoute>()
                 ProjectsScreen(
+                    arguments.projects,
                     onNavigate
                 )
             }
 
             // All Courses Screen
-            composable<CoursesScreenRoute> {
+            composable<CoursesScreenRoute>(
+                typeMap = mapOf(
+                    typeOf<List<CourseUiModel>>() to CustomNavType.coursesType
+                )
+            ) {
                 selectedIndex = 2
                 topBar.value = "Courses"
-                CoursesScreen()
+
+                val arguments = it.toRoute<CoursesScreenRoute>()
+                CoursesScreen(arguments.courses)
             }
 
             // Message Screen

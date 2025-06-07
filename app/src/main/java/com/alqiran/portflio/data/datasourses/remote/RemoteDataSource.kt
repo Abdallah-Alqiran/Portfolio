@@ -66,52 +66,6 @@ class RemoteDataSource @Inject constructor(
         }
     }
 
-    suspend fun getAllProjects(): List<Project> {
-        try {
-            val userData = getAllUserData()
-
-            val projects = userData.projects
-            if (projects != null) {
-                return projects
-            } else {
-                throw NoSuchElementException("There is no projects found")
-            }
-        } catch (e: Exception) {
-            throw e
-        }
-    }
-
-    suspend fun getAllCourses(): List<Course> {
-        try {
-            val userData = getAllUserData()
-
-            val courses = userData.courses
-            if (courses != null) {
-                return courses
-            } else {
-                throw NoSuchElementException("There is no Courses found")
-            }
-        } catch (e: Exception) {
-            throw e
-        }
-    }
-
-    suspend fun getProjectItem(id: Int): Project {
-        try {
-            val userData = getAllUserData()
-
-            val project = userData.projects?.find { it.id == id }
-            if (project != null) {
-                return project
-            } else {
-                throw NoSuchElementException("No Project with id $id")
-            }
-        } catch (e: Exception) {
-            throw e
-        }
-    }
-
-
     fun sendMessage(contactMessage: ContactMessage) {
         try {
             val message = firestore.collection(COLLECTION_NAME).document(DOCUMENT_USER_NAME)

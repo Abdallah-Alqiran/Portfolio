@@ -16,18 +16,6 @@ class FirebaseRepositoryImpl @Inject constructor(
         return remoteDataSource.getAllUserData()
     }
 
-    override suspend fun getAllProjects(): List<Project> {
-        return remoteDataSource.getAllProjects()
-    }
-
-    override suspend fun getAllCourses(): List<Course> {
-        return remoteDataSource.getAllCourses()
-    }
-
-    override suspend fun getProjectItem(id: Int): Project {
-        return remoteDataSource.getProjectItem(id)
-    }
-
     override fun sendMessage(contactMessage: ContactMessage) {
         return remoteDataSource.sendMessage(contactMessage)
     }

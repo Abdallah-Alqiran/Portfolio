@@ -9,11 +9,5 @@ interface FirebaseRepository {
 
     suspend fun getAllUserData(): User
 
-    suspend fun getAllProjects(): List<Project>
-
-    suspend fun getAllCourses(): List<Course>
-
-    suspend fun getProjectItem(id: Int): Project
-
     fun sendMessage(contactMessage: ContactMessage)
 }

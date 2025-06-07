@@ -14,10 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.alqiran.portflio.ui.navigation.NavigationAction
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,50 +23,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.alqiran.portflio.R
-import com.alqiran.portflio.ui.components.loading_and_failed.FailedLoadingScreen
-import com.alqiran.portflio.ui.components.loading_and_failed.LoadingProgressIndicator
 import com.alqiran.portflio.ui.model.ProjectUiModel
 import com.alqiran.portflio.ui.screens.home_screen.components.DefaultButton
-import com.alqiran.portflio.ui.screens.projects_screen.viewModel.ProjectsState
-import com.alqiran.portflio.ui.screens.projects_screen.viewModel.ProjectsViewModel
 import com.alqiran.portflio.ui.utils.ButtonType
 
 
-@Composable
-fun ProjectsScreen(onNavigate: (NavigationAction) -> Unit) {
-    val projectsViewModel = hiltViewModel<ProjectsViewModel>()
-    val projectsState by projectsViewModel.projectState.collectAsStateWithLifecycle()
 
-    LaunchedEffect(Unit) {
-        projectsViewModel.fetchAllProjects()
-    }
-
-    when (projectsState) {
-        is ProjectsState.Error -> {
-            FailedLoadingScreen(
-                onFailed = { projectsViewModel.fetchAllProjects() },
-                errorMessage = (projectsState as ProjectsState.Error).error
-            )
-        }
-
-        ProjectsState.Loading -> {
-            LoadingProgressIndicator()
-        }
-
-        is ProjectsState.Success -> {
-            ProjectsContentScreen((projectsState as ProjectsState.Success).projects, onNavigate)
-        }
-
-        ProjectsState.None -> Unit
-    }
-}
 
 @Composable
-fun ProjectsContentScreen(projects: List<ProjectUiModel>, onNavigate: (NavigationAction) -> Unit) {
+fun ProjectsScreen(projects: List<ProjectUiModel>, onNavigate: (NavigationAction) -> Unit) {
 
     val context = LocalContext.current
 
