@@ -1,7 +1,5 @@
 #  📜️**Portfolio**
 
-# 📱 Portfolio App (User Version)
-
 This is the public version of my portfolio app, built with modern Android development tools and architecture. It showcases my work in a clean, dynamic, and Firebase-powered interface.
 
 ---
