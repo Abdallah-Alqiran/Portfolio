@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alqiran.portfoliomain.theme.PortfolioMainTheme
+import com.alqiran.portfoliomain.ui.components.loading_and_failed.LoadingProgressIndicator
 import com.alqiran.portfoliomain.ui.model.ContactMessageUiModel
 import com.alqiran.portfoliomain.ui.screens.home_screen.components.DefaultButton
 import com.alqiran.portfoliomain.ui.screens.message_screen.components.CustomOutlinedTextFieldWidget
@@ -38,6 +41,9 @@ fun MessageScreen() {
     val messageViewModel = hiltViewModel<MessageViewModel>()
     val messageState = messageViewModel.messageState.collectAsStateWithLifecycle()
 
+    var email by remember { mutableStateOf("") }
+    var message by remember { mutableStateOf("") }
+
     when (messageState.value) {
         is MessageState.Error -> {
             Toast.makeText(
@@ -45,37 +51,31 @@ fun MessageScreen() {
                 (messageState.value as MessageState.Error).error,
                 Toast.LENGTH_SHORT
             ).show()
+            messageViewModel.resetState()
         }
 
         MessageState.Loading -> {
-            CircularProgressIndicator()
+            LoadingProgressIndicator()
         }
 
         MessageState.Success -> {
             Toast.makeText(context, "Data Saved Successfully", Toast.LENGTH_SHORT).show()
+            email = ""
+            message = ""
+            messageViewModel.resetState()
         }
 
         MessageState.None -> Unit
     }
 
-    MessageContentScreen(messageViewModel)
-
-}
-
-@Composable
-fun MessageContentScreen(
-    messageViewModel: MessageViewModel
-) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
             .fillMaxSize()
-            .padding(8.dp),
+            .padding(8.dp)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        var email by remember { mutableStateOf("") }
-        var message by remember { mutableStateOf("") }
 
         Text(
             text = "I’m open to communication — feel free to reach out at any time.",
@@ -111,9 +111,10 @@ fun MessageContentScreen(
         DefaultButton(text = "Send Message", buttonType = ButtonType.MessageOnClick {
             messageViewModel.sendMessage(ContactMessageUiModel(email = email, message = message))
         })
-
     }
+
 }
+
 
 @Preview
 @Composable

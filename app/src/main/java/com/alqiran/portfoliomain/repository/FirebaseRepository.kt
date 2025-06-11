@@ -1,4 +1,4 @@
-package com.alqiran.portfoliomain.domain.repository
+package com.alqiran.portfoliomain.repository
 
 import com.alqiran.portfoliomain.data.datasourses.remote.model.ContactMessage
 import com.alqiran.portfoliomain.data.datasourses.remote.model.User

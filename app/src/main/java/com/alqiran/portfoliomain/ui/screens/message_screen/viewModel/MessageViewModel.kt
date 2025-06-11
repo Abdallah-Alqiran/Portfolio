@@ -2,7 +2,7 @@ package com.alqiran.portfoliomain.ui.screens.message_screen.viewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.alqiran.portfoliomain.domain.repository.FirebaseRepository
+import com.alqiran.portfoliomain.repository.FirebaseRepository
 import com.alqiran.portfoliomain.ui.mapper.toContactMessage
 import com.alqiran.portfoliomain.ui.model.ContactMessageUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,4 +44,7 @@ class MessageViewModel @Inject constructor(private val messageRepo: FirebaseRepo
         }
     }
 
+    fun resetState() {
+        _messageState.value = MessageState.None
+    }
 }

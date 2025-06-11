@@ -56,9 +56,9 @@ fun HomeScreen(
 
     when (userData) {
         is UserState.Success -> {
-            val userData = (userData as UserState.Success).userData
-            onStart(userData.projects, userData.courses)
-            HomeContentScreen(userData, onNavigate)
+            val data = (userData as UserState.Success).userData
+            onStart(data.projects, data.courses)
+            HomeContentScreen(data, onNavigate)
         }
 
         is UserState.Error -> {
