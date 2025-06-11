@@ -6,6 +6,17 @@ This is the public version of my portfolio app, built with modern Android develo
 
 ---
 
+## Sections
+
+- 🧑‍💼 About Me
+- 🎓 Education & Courses
+- 💼 Experience
+- 💡 Projects
+- 🧠 Skills
+- 🛠 Technologies and Tools
+
+---
+
 ## 🔧 Features
 
 - Built with **Jetpack Compose** for a modern UI.
@@ -23,11 +34,3 @@ This is the public version of my portfolio app, built with modern Android develo
 
 ---
 
-## Sections
-
-- 🧑‍💼 About Me
-- 🎓 Education & Courses
-- 💼 Experience
-- 💡 Projects
-- 🧠 Skills
-- 🛠 Technologies and Tools
