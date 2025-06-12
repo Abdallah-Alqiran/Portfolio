@@ -32,3 +32,10 @@ This is the public version of my portfolio app, built with modern Android develo
 
 ---
 
+## 🌐 [View Web Version]()
+
+Created by [Omniya Abdelnasser](https://github.com/Omnia-Abdelnasser)
+
+## [Download the app from here]()
+
+## 📱 [View Mobile Admin Version Code](https://github.com/Abdallah-Alqiran/Portfolio-Admin)
