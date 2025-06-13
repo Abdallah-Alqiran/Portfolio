@@ -112,18 +112,27 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
         }
 
         item {
+            if (userData.about != null) {
+                HeadlineTextWidget(text = "About")
+                AboutSection(userData.about)
+            }
+        }
+
+        item {
             if (userData.education != null) {
                 HeadlineTextWidget(text = "Education")
                 EducationSection(userData.education)
             }
         }
 
+
         item {
-            if (userData.about != null) {
-                HeadlineTextWidget(text = "About")
-                AboutSection(userData.about)
+            if (userData.skills != null) {
+                HeadlineTextWidget(text = "Skills")
+                SkillsSection(userData.skills)
             }
         }
+
 
         item {
             if (userData.technologiesAndTools != null) {
@@ -132,12 +141,6 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             }
         }
 
-        item {
-            if (userData.skills != null) {
-                HeadlineTextWidget(text = "Skills")
-                SkillsSection(userData.skills)
-            }
-        }
 
         item {
             if (userData.projects != null) {
