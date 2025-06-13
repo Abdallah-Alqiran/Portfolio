@@ -33,7 +33,7 @@ This is the public version of my portfolio app, built with modern Android develo
 
 ---
 
-## 🌐 [View Web Version]()
+## 🌐 [View WebSite]()
 
 Created by [Omniya Abdelnasser](https://github.com/Omnia-Abdelnasser)
 
