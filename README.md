@@ -33,12 +33,12 @@ This is the public version of my portfolio app, built with modern Android develo
 
 ---
 
-## 🌐 [View WebSite]()
+## 🌐 [View WebSite](https://abdallah-alqiran.github.io/web-portfolio/)
 
 Created by [Omniya Abdelnasser](https://github.com/Omnia-Abdelnasser)
 
 check the code [from here](https://github.com/Omnia-Abdelnasser/web-portfolio)
 
-## [Download the app from here]()
+## [Download the app from here](https://drive.google.com/drive/folders/1XdkDYVAE8nR2KQuPoSWVkp6Doi7fvM1W)
 
 ## 📱 [View Mobile Admin Version Code](https://github.com/Abdallah-Alqiran/Portfolio-Admin)
