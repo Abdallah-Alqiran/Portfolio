@@ -17,6 +17,7 @@ This is the public version of my portfolio app, built with modern Android develo
 
 ## 🔧 Features
 
+- The Web version of the portfolio was created by [Omniya Abdelnasser](https://github.com/Omnia-Abdelnasser), while the Mobile versions (Admin and User) were developed in parallel to manage and display the same data through Firebase.
 - Built with **Jetpack Compose** for a modern UI.
 - Uses **Firebase** (Firestore, Realtime DB, Analytics).
 - Loads images using **Coil**.
@@ -35,6 +36,7 @@ This is the public version of my portfolio app, built with modern Android develo
 ## 🌐 [View Web Version]()
 
 Created by [Omniya Abdelnasser](https://github.com/Omnia-Abdelnasser)
+check the code [from here](https://github.com/Omnia-Abdelnasser/web-portfolio)
 
 ## [Download the app from here]()
 
