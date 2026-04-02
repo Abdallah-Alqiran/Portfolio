@@ -10,16 +10,17 @@ plugins {
 
     // Serialization
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.alqiran.portfoliomain"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.alqiran.portfoliomain"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -78,25 +79,29 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // for Testing
+    testImplementation(libs.truth)
+    androidTestImplementation(libs.truth)
+
     // testing
-    testImplementation(kotlin("test")) // Includes kotlin.test assertions
+    testImplementation(kotlin("test"))
 
     // JUnit 5
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 
     // Mockito (Java mocking framework)
-    testImplementation("org.mockito:mockito-core:5.3.1")
+    testImplementation(libs.mockito.core)
 
     // Kotlinx Coroutines testing
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation(libs.kotlinx.coroutines.test)
 
-    // Truth (for fluent assertions)
-    testImplementation("com.google.truth:truth:1.1.3")
 
-    androidTestImplementation("androidx.test:core:1.5.0")
-    androidTestImplementation("androidx.test:runner:1.5.2")
-    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation(libs.androidx.core)
+    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.androidx.rules)
+
+    testImplementation(libs.androidx.core.testing)
 
 
     //coil
