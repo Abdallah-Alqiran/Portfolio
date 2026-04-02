@@ -15,8 +15,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.alqiran.portfoliomain.ui.components.bars.BottomBar
 import com.alqiran.portfoliomain.ui.components.bars.TopBar
+import com.alqiran.portfoliomain.ui.model.CertificateUiModel
 import com.alqiran.portfoliomain.ui.model.CourseUiModel
 import com.alqiran.portfoliomain.ui.model.ProjectUiModel
+import com.alqiran.portfoliomain.ui.screens.certificate_item_screen.CertificateItemScreen
 import com.alqiran.portfoliomain.ui.screens.courses_screen.CoursesScreen
 import com.alqiran.portfoliomain.ui.screens.home_screen.HomeScreen
 import com.alqiran.portfoliomain.ui.screens.message_screen.MessageScreen
@@ -41,7 +43,9 @@ fun AppNavHost() {
             is NavigationAction.ToProject -> {
                 navController.navigate(ProjectItemRoute(project = action.project))
             }
-
+            is NavigationAction.ToCertificate -> {
+                navController.navigate(CertificateItemRoute(certificate = action.certificate))
+            }
             is NavigationAction.ToViewAllCourses -> {
                 navController.navigate(CoursesScreenRoute(courses = action.courses))
             }
@@ -156,6 +160,20 @@ fun AppNavHost() {
 
                 val arguments = it.toRoute<CoursesScreenRoute>()
                 CoursesScreen(arguments.courses)
+            }
+
+            // Certificate Item
+            composable<CertificateItemRoute>(
+                typeMap = mapOf(
+                    typeOf<CertificateUiModel>() to CustomNavType.certificateItemType
+                )
+            ) { navBackStackEntry ->
+                topBar.value = "certificate"
+
+                val arguments = navBackStackEntry.toRoute<CertificateItemRoute>()
+                CertificateItemScreen(
+                    arguments.certificate
+                )
             }
 
             // Message Screen

@@ -33,6 +33,7 @@ foundation = "1.5.0"
 ui = "1.5.0"
 
 navigationCompose = "2.8.0-beta06"
+runtime = "1.10.6"
 
 
 [libraries]
@@ -83,6 +84,7 @@ androidx-foundation = { module = "androidx.compose.foundation:foundation", versi
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 
 androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose"}
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 
 
 [plugins]

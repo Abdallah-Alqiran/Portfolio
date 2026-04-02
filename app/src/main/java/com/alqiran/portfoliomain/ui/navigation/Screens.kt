@@ -3,6 +3,7 @@ package com.alqiran.portfoliomain.ui.navigation
 import android.net.Uri
 import android.os.Bundle
 import androidx.navigation.NavType
+import com.alqiran.portfoliomain.ui.model.CertificateUiModel
 import com.alqiran.portfoliomain.ui.model.CourseUiModel
 import com.alqiran.portfoliomain.ui.model.ProjectUiModel
 import kotlinx.serialization.Serializable
@@ -17,6 +18,9 @@ data object HomeScreenRoute
 
 @Serializable
 data class ProjectItemRoute(val project: ProjectUiModel)
+
+@Serializable
+data class CertificateItemRoute(val certificate: CertificateUiModel)
 
 @Serializable
 data class ProjectsScreenRoute(val projects: List<ProjectUiModel>)
@@ -50,6 +54,33 @@ object CustomNavType {
             bundle: Bundle,
             key: String,
             value: ProjectUiModel
+        ) {
+            bundle.putString(key, Json.encodeToString(value))
+        }
+    }
+
+    val certificateItemType = object : NavType<CertificateUiModel>(
+        isNullableAllowed = false
+    ) {
+        override fun get(
+            bundle: Bundle,
+            key: String
+        ): CertificateUiModel? {
+            return Json.decodeFromString(bundle.getString(key) ?: return null)
+        }
+
+        override fun parseValue(value: String): CertificateUiModel {
+            return Json.decodeFromString(Uri.decode(value))
+        }
+
+        override fun serializeAsValue(value: CertificateUiModel): String {
+            return Uri.encode(Json.encodeToString(value))
+        }
+
+        override fun put(
+            bundle: Bundle,
+            key: String,
+            value: CertificateUiModel
         ) {
             bundle.putString(key, Json.encodeToString(value))
         }

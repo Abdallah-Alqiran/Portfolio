@@ -3,6 +3,7 @@ package com.alqiran.portfoliomain.ui.screens.home_screen
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -28,7 +29,9 @@ import com.alqiran.portfoliomain.ui.model.ProjectUiModel
 import com.alqiran.portfoliomain.ui.model.UserUiModel
 import com.alqiran.portfoliomain.ui.navigation.NavigationAction
 import com.alqiran.portfoliomain.ui.screens.home_screen.components.AboutSection
-import com.alqiran.portfoliomain.ui.screens.home_screen.components.Courses
+import com.alqiran.portfoliomain.ui.screens.home_screen.components.CertificatesSection
+import com.alqiran.portfoliomain.ui.screens.home_screen.components.ContentsSection
+import com.alqiran.portfoliomain.ui.screens.home_screen.components.CoursesSection
 import com.alqiran.portfoliomain.ui.screens.home_screen.components.DefaultButton
 import com.alqiran.portfoliomain.ui.screens.home_screen.components.EducationSection
 import com.alqiran.portfoliomain.ui.screens.home_screen.components.ExperienceSection
@@ -89,8 +92,9 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
             .fillMaxSize()
-            .padding(horizontal = 8.dp),
-        state = listState
+            .padding(horizontal = 16.dp),
+        state = listState,
+        contentPadding = PaddingValues(bottom = 32.dp)
     ) {
         item {
             TopTitleSection(
@@ -111,6 +115,7 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             }
         }
 
+        // About Section
         item {
             if (userData.about != null) {
                 HeadlineTextWidget(text = "About")
@@ -118,30 +123,7 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             }
         }
 
-        item {
-            if (userData.education != null) {
-                HeadlineTextWidget(text = "Education")
-                EducationSection(userData.education)
-            }
-        }
-
-
-        item {
-            if (userData.skills != null) {
-                HeadlineTextWidget(text = "Skills")
-                SkillsSection(userData.skills)
-            }
-        }
-
-
-        item {
-            if (userData.technologiesAndTools != null) {
-                HeadlineTextWidget(text = "Technologies and Tools")
-                TechnologiesAndToolsSection(userData.technologiesAndTools)
-            }
-        }
-
-
+        // Projects Section
         item {
             if (userData.projects != null) {
                 HeadlineTextWidget(text = "Projects")
@@ -154,10 +136,36 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             }
         }
 
+        // Experience Section
+        item {
+            if (userData.experiences != null) {
+                HeadlineTextWidget(text = "Experience")
+                ExperienceSection(userData.experiences)
+            }
+        }
+
+        // Skills Section
+        item {
+            if (userData.skills != null) {
+                HeadlineTextWidget(text = "Skills")
+                SkillsSection(userData.skills)
+            }
+        }
+
+
+        // Technologies & Tools Section
+        item {
+            if (userData.technologiesAndTools != null) {
+                HeadlineTextWidget(text = "Technologies and Tools")
+                TechnologiesAndToolsSection(userData.technologiesAndTools)
+            }
+        }
+
+        // Courses Section
         item {
             if (userData.courses != null) {
                 HeadlineTextWidget(text = "Courses")
-                Courses(userData.courses)
+                CoursesSection(userData.courses)
                 ViewAllTextButton(
                     "Courses",
                     onNavigate = onNavigate,
@@ -166,10 +174,27 @@ fun HomeContentScreen(userData: UserUiModel, onNavigate: (NavigationAction) -> U
             }
         }
 
+        // Certificates Section
         item {
-            if (userData.experiences != null) {
-                HeadlineTextWidget(text = "Experience")
-                ExperienceSection(userData.experiences)
+            if (userData.certificates != null ) {
+                HeadlineTextWidget(text = "Certificates")
+                CertificatesSection(userData.certificates, onNavigate)
+            }
+        }
+
+        // Contents Section
+        item {
+            if (userData.contentsTitle != null ) {
+                HeadlineTextWidget(text = "Resources")
+                ContentsSection(userData.contentsTitle)
+            }
+        }
+
+        // Education Section
+        item {
+            if (userData.education != null) {
+                HeadlineTextWidget(text = "Education")
+                EducationSection(userData.education)
             }
         }
     }

@@ -1,7 +1,10 @@
 package com.alqiran.portfoliomain.ui.mapper
 
 import com.alqiran.portfoliomain.data.datasourses.remote.model.User
+import com.alqiran.portfoliomain.ui.model.CertificateUiModel
 import com.alqiran.portfoliomain.ui.model.ContactAndAccountsUiModel
+import com.alqiran.portfoliomain.ui.model.ContentTitleUiModel
+import com.alqiran.portfoliomain.ui.model.ContentUiModel
 import com.alqiran.portfoliomain.ui.model.CourseUiModel
 import com.alqiran.portfoliomain.ui.model.EducationUiModel
 import com.alqiran.portfoliomain.ui.model.ExperienceUiModel
@@ -10,6 +13,7 @@ import com.alqiran.portfoliomain.ui.model.SkillUiModel
 import com.alqiran.portfoliomain.ui.model.TechnologyTitleUiModel
 import com.alqiran.portfoliomain.ui.model.TechnologyUiModel
 import com.alqiran.portfoliomain.ui.model.UserUiModel
+import com.alqiran.portfoliomain.ui.model.VideoPresentationUiModel
 
 fun User.toUserDataUi(): UserUiModel {
     return UserUiModel(
@@ -24,7 +28,9 @@ fun User.toUserDataUi(): UserUiModel {
                 image = project.image,
                 projectName = project.projectName,
                 description = project.description,
-                url = project.url
+                githubUrl = project.githubUrl,
+                googlePlayUrl = project.googlePlayUrl,
+                appleStoreUrl = project.appleStoreUrl,
             )
         },
         contactAndAccounts = this.contactAndAccounts?.map { contact ->
@@ -61,6 +67,7 @@ fun User.toUserDataUi(): UserUiModel {
         },
         experiences = this.experiences?.map { exp ->
             ExperienceUiModel(
+                id = exp.id,
                 experienceTitle = exp.experienceTitle,
                 company = exp.company,
                 date = exp.date,
@@ -73,6 +80,34 @@ fun User.toUserDataUi(): UserUiModel {
                 university = edu.university,
                 date = edu.date,
                 major = edu.major
+            )
+        },
+        contentsTitle = this.contentsTitle?.map { contentTitle ->
+            ContentTitleUiModel(
+                id = contentTitle.id,
+                contentTitle = contentTitle.contentTitle,
+                contents = contentTitle.contents.map { content ->
+                    ContentUiModel(
+                        id = content.id,
+                        contentDescription = content.contentDescription,
+                        contentUrl = content.contentUrl,
+                    )
+                }
+            )
+        },
+        certificates = this.certificates?.map { certificate ->
+            CertificateUiModel(
+                id = certificate.id,
+                imageUrl = certificate.imageUrl,
+                certificateName = certificate.certificateName,
+                description = certificate.description,
+            )
+        },
+        videos = this.videos?.map { video ->
+            VideoPresentationUiModel(
+                id = video.id,
+                videoUrl = video.videoUrl,
+                videoTitle = video.videoTitle
             )
         }
     )
